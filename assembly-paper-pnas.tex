@@ -16,7 +16,7 @@
 \usepackage{url}
 \begin{document}
 
-\title{Assembling large, complex environmental metagenomes}
+\title{Tackling soil diversity with the assembly of large, complex metagenomes}
 
 \author{Adina Chuang Howe\affil{1}{Microbiology and Molecular Genetics, Michigan
 State University, East Lansing, MI, USA}\affil{2}{Plant, Soil, and Microbial
@@ -33,7 +33,7 @@ United States of America} \maketitle
 
 \begin{article} \begin{abstract} The large volumes of sequencing data required
 to sample complex environments deeply pose new challenges to sequence analysis
-approaches.De novo metagenomic assembly effectively reduces the total amount of
+approaches. De novo metagenomic assembly effectively reduces the total amount of
 data to be analyzed but requires significant computational resources. We apply
 two pre-assembly filtering approaches, digital normalization and partitioning,
 to make large metagenome assemblies more computationally tractable. Using a
@@ -56,15 +56,15 @@ sequencing has begun to reveal the enormous diversity and heterogeneity
 associated within these systems, making them difficult to study {\em in situ}
 \cite{Hess:2011p686,Mackelprang:2011p1087,Qin:2010p189}. With ultradeep
 sequencing, we now have unprecedented access to even the rare species in these
-environment (i.e., ~50 Tbp required to adequately sample a gram of soil
+environments (i.e., ~50 Tbp required to adequately sample a gram of soil
 \cite{Gans:2005p1365}).
 
 Alongside sequencing breakthroughs, new challenges to sequence analysis
 approaches have emerged. Sequencing dataset sizes are growing at an exponential
 rate, requiring significant computational resources for data storage and
 analysis. A single metagenomic project can readily generate as much or more data
-than is in global reference databases;for example, a human-gut metagenome sample
-containing 578 Gbp \cite{Qin:2010p189} produced more than double the datain NCBI
+than is in global reference databases; for example, a human-gut metagenome sample
+containing 578 Gbp \cite{Qin:2010p189} produced more than double the data in NCBI
 RefSeq (Release 56). Moreover, short reads contain only minimal signal for
 homology searches and are error-prone, limiting direct annotation approaches
 against reference databases. And finally, the majority of genes sequenced from
@@ -73,7 +73,7 @@ studied genes, further complicating homology analysis
 \cite{Arumugam:2011p735,Qin:2010p189}.
 
 Consequently, investigators of metagenomic datasets are confounded by
-overwhelming volumes of data which they do not have the computational resources
+overwhelming volumes of data for which they do not have the computational resources
 to efficiently analyze or which are unsuitable for the current suite of
 bioinformatic tools (because of short read lengths or a lack of reference
 genomes). \emph{De novo} assembly of sequence data offers several advantages for
@@ -97,10 +97,10 @@ coverage for extremely diverse environmental metagenomes
 Here, we present two pre-assembly read filtering strategies, digital
 normalization and partitioning, that provide a general strategy for scaling and
 improving metagenome assembly. Digital normalization normalizes sequence
-coverage and reduces the dataset size by discarding reads from high-coverage
-regions \cite{browndiginorm}. Subsequently, partitioning separates reads based
-on transitive connectivity, resulting in easily assembled subsets of reads
-\cite{howeartifacts,Pell:2012cq}. We evaluate these approaches by applying them
+coverage and reduces the dataset size by setting aside reads from high-coverage
+regions. Subsequently, partitioning separates reads based
+on transitive connectivity, resulting in easily assembled subsets of reads. 
+We evaluate these approaches by applying them
 to a human gut mock community (HGMC) dataset and find that these filtering
 methods result in assemblies nearly identical to assemblies from the unprocessed
 dataset. Moreover, we show that partitioning separates most reads into
@@ -108,27 +108,27 @@ species-level bins, providing an alternative to abundance-based and k-mer
 approaches to species clustering.
 
 We next apply these approaches to the assembly of previously intractable
-metagenomes from two matched soils, 100-year cultivated Iowa agricultural soil
+metagenomes from two matched soils, 100-year cultivated Iowa agricultural corn soil
 and native Iowa prairie. We compare the predicted functional capacities of the
 assembled contigs and conclude that assembled sequences provide significant
 advantages towards understanding the functional diversity of soil.
 
-\section*{Results} \subsection*{Data reduction results in similar assemblies} We
+\section*{Results} \subsection*{Data reduction results in similar assemblies.} We
 evaluated the recovery of reference genomes from {\em de novo} metagenomic
 assembly of the HGMC dataset by comparing unfiltered traditional assembly (Fig.
 \ref{flowchart}, Assembly I) to the assembly of reads remaining after digital
-normalization (Fig. ~\ref{flowchart}, Assembly II). The
+normalization (Fig.~\ref{flowchart}, Assembly II). The
 abundance of genomes within the HGMC dataset (based on the reference genome
 coverage of sequence reads in the unfiltered dataset) ranged from 6-fold to
-2,000-fold coverage (Fig. ~\ref{coverage1}, ~\ref{coverage2}, Table ~\ref{ref-summary}). The unfiltered, unassembled dataset
+2,000-fold coverage (Fig.~\ref{coverage1}, ~\ref{coverage2}, Table ~\ref{ref-summary}). The unfiltered, unassembled dataset
 encompassed a total of 93\% of the genomic content of the reference genomes.
 With digital normalization, reads were removed based on their coverage within
 the dataset (See Methods) and resulted in a total of 5.9 million reads (40\% of
 the total reads) from the original HGMC dataset (Table ~\ref{data-summary}). The
 remaining reads in the filtered HGMC dataset covered 91\% of the reference
-genomes (Table ~\ref{data-summary} and Fig.  \ref{coverage1}, \ref{coverage2}).
+genomes (Table ~\ref{data-summary} and Fig. \ref{coverage1}, \ref{coverage2}).
 
-We next compared contigs assembled from the original and filtered HGMC datasets
+We next compared contigs assembled from the original and normalized HGMC datasets
 and their representation of the reference genomes. Using the Velvet assembler
 \cite{Zerbino:2008p665}, we recovered 43\% and 44\% of the reference genomes in
 the original and filtered assemblies, respectively. The assembly of the original
@@ -140,33 +140,33 @@ also obtained with other assemblers (SOAPdenovo \cite{Li:2010jz} and Meta-IDBA
 similar, sharing 95\% of genomic content (Table ~\ref{assembly-compare}). In the most abundant reference genomes
 (the plasmids NC\_005008.1, NC\_005007.1, and NC\_005003.1), the unfiltered
 assembly recovered significantly more of the original sequence; however, for the
-large majority of genomes,the filtered assembly recovered similar (and sometimes
-greater) amounts of the reference genomes (Fig. \ref{coverage1}, \ref{coverage2}). The distribution
+large majority of genomes, the filtered assembly recovered similar (and sometimes
+greater) amounts of the reference genomes (Fig.\ref{coverage1}, \ref{coverage2}). The distribution
 of contig lengths in unfiltered and filtered assemblies were also comparable.
 
 We further compared the estimated abundance of genomes in the HGMC dataset and
 both unfiltered and filtered assemblies. Genome abundance was estimated through
 the alignment of unassembled reads to either the reference genome or assembled
-contigs. Sequencing coverage was determined asthe median base pair coverage of
+contigs. Sequencing coverage was determined as the median base pair coverage of
 all aligned reads. For assembled contigs with coverage greater than 5, the
-majority of reads which could be aligned contigs were also mapped to reference
-genomes (Fig. \ref{coverage1}, \ref{coverage2}). Below this threshold, reads were mapped to reference
+majority of reads which could be aligned to contigs were also mapped to reference
+genomes (Fig.\ref{coverage1}, \ref{coverage2}). Below this threshold, reads were mapped to reference
 genomes but were less likely to be associated with assembled contigs. Comparing
 the unfiltered and filtered assemblies, the estimated abundance of the HGMC
 genomes from the filtered assembly were significantly closer to predicted
 abundances from reference genomes (\emph{n} = 28,652; p-value = 0.032, see SI
 Methods).
 
-\subsection*{Partitioning separates most reads by species} We next partitioned
-the filtered data set based on de Bruijn graph connectivity and assembled each
-partition independently (Fig. \ref{flowchart}, Assembly III) . The HGMC dataset
+\subsection*{Partitioning separates most reads by species.} We next partitioned
+the normalized data set based on de Bruijn graph connectivity and assembled each
+partition independently (Fig.\ref{flowchart}, Assembly III) . The HGMC dataset
 was partitioned into 85,818 disconnected partitions containing a total of 9
 million reads. Among these, only 2,359 (2.7\%) of the partitions contained reads
 originating from more than one genome, indicating that partitioning separated
 reads from distinct species. The resulting assemblies of the unpartitioned and
 partitioned dataset were very similar, sharing 99\% identical genomic content.
 
-In general, reference genomes with high sequencing coverage were associated with
+In general, reference genomes with high sequence coverage were associated with
 fewer partitions; a total of 112 partitions contained reads from
 high abundance reference genomes (coverage above 25) compared to 2,771
 partitions associated with lower abundance genomes (coverage below 25). This is
@@ -178,17 +178,17 @@ To further evaluate the effects of partitioning, we introduced spiked, simulated
 reads from \emph{E. coli} genomes into the HGMC dataset. First, simulated reads
 from a single genome (\emph{E. coli} strain E24377A, NC\_009801.1 with 2\%
 substitution error and 10x coverage) were added to the HGMC dataset and the
-resulting dataset, HGMC.Ecoli1, was filtered by coverage, partitioned, and
+resulting dataset, HGMC.Ecoli1, was normalized by coverage, partitioned, and
 assembled. Similar amounts of data reduction after digital normalization and
 partitioning (Table ~\ref{data-summary}) were observed. Among the 81,154
 partitioned sets of reads in the HGMC.Ecoli1 dataset, only 2,580 (3.2\%)
 partitions contained reads from multiple genomes. In total, 424 partitions
-contained reads from the spiked \emph{E. coli} genome (201 partitionscontained
+contained reads from the spiked \emph{E. coli} genome (201 partitions contained
 \emph{only} spiked reads) and when assembled, these reads aligned to 99.5\% of
 \emph{E. coli} strain E24377A genome (4,957,067 of 4,979,619 bp).
 
 Next, we introduced five closely-related \emph{E. coli} strains into original
-HGMC dataset. This dataset, referred to as HGMC.EColi5, was filtered,
+HGMC dataset. This dataset, referred to as HGMC.EColi5, was normalized,
 partitioned, and assembled, resulting in 81,425 partitions. Among these, 1,154
 (1.4\%) partitions contained reads associated with multiple genomes. Among the
 partitions which contained reads associated with a single genome, 658 partitions
@@ -212,14 +212,14 @@ found that the fraction of contigs which are associated with multiple genomes
 were similar. In the unfiltered data set, 66\% of 4,702 contigs were associated
 with spiked reads which could have originated from more than one genome.
 
-\subsection*{Aassembly of two soil metagenomes} We next applied digital
+\subsection*{Assembly of two soil metagenomes.} We next applied digital
 normalization and partitioning approaches to the {\em de novo} assembly of two
 soil metagenomes. Unfiltered Iowa corn and prairie datasets (containing 1.8
 billion and 3.3 billion reads, respectively) could not be assembled by Velvet in
-500GB of RAM. A 75 million reads subset of the Iowa corn dataset alone required
+500 GB of RAM. A 75 million reads subset of the Iowa corn dataset alone required
 110 GB of memory, suggesting that assembly of the 3.3 billion read data set
-might need as much as 4 TB of RAM. Applying the same filtering approaches as
-used for the HGMC dataset, the Iowa corn and prairie datasets were reduced to
+might need as much as 4 TB of RAM. Applying both normalization and partitioning approaches, 
+the Iowa corn and prairie datasets were reduced to
 1.4 billion and 2.2 billion reads, respectively, and after partitioning, a total
 of 1.0 billion and 1.7 billion reads remained, respectively. These pre-filtering
 approaches required 300 GB of RAM or less. Notably, the large majority of k-mers
@@ -230,7 +230,7 @@ remove as many reads in the soil metagenomes as in the mock data set (Table
 
 Based on the HGMC dataset, we estimated that above a sequencing depth of five,
 the large majority of sequences could be assembled into contigs greater than or
-equal to 300 bp (Fig. ~\ref{coveragehmp}). Given the greater diversity expected in
+equal to 300 bp (Fig.~\ref{coveragehmp}). Given the greater diversity expected in
 the soil metagenomes, we normalized these datasets to a sequencing depth of 20
 (i.e., discarding redundant reads within dataset above this coverage). After
 partitioning the filtered datasets, we identified a total 31,537,798 and
@@ -252,15 +252,15 @@ In the Iowa prairie assembly, 10\% of the single reads and 11\% of the paired
 end reads aligned to the assembled contigs, and 95.4\% of the paired ends
 aligned concordantly (Table ~\ref{read-map}). Based on the alignment of
 sequencing reads to assembled contigs, we estimated the distribution of
-sequencing coveragein resulting assemblies (Fig.~\ref{soilassemblycoverage}).
+sequencing coverage in resulting assemblies (Fig.~\ref{soilassemblycoverage}).
 Overall, the coverage of each metagenome was low, where 48\% and 31\% of total
-contigs in Iowa corn and prairie assemblies, respectively, had a medianbasepair
+contigs in Iowa corn and prairie assemblies, respectively, they had a median basepair
 coverage less than 10.
 
 As the resulting assemblies are consensus representatives of the unassembled
 datasets, we also investigated the degree of variation (i.e., polymorphism)
-present among aligned reads to assembled contigs. (Supplementary Information
-Methods). For both the Iowa corn and prairie metagenomes, more than 99.9\% of
+present among aligned reads to assembled contigs (SI Methods). 
+For both the Iowa corn and prairie metagenomes, more than 99.9\% of
 contigs contained base calls which were supported by a 95\% consensus from
 mapped reads over 90\% of their lengths, demonstrating an unexpectedly low
 polymorphism rate.
@@ -268,38 +268,39 @@ polymorphism rate.
 We annotated assembled contigs (greater than 300 bp) through the MG-RAST
 pipeline. This annotation resulted in 2,089,779 and 3,460,496 predicted protein
 coding regions in the corn and prairie metagenomes, respectively. The large
-majority of these regions did not share similarity with any gene in the MG-RAST
-database, M5NR (release 52), 61.8\% in corn and 70.0\% in prairie. In total,
+majority of these regions, 61.8\% in corn and 70.0\% in prairie, did not share similarity with any gene in the MG-RAST
+database M5NR (release 52). In total,
 613,213 (29.3\%) and 777,454 (22.5\%) protein coding regions were assigned to an
 existing function. Many contigs were greater than 1 kbp, including 85,581 (max.
 length = 20,234) and 11,728 (max. length = 2,579) contigs in the corn and
 prairie metagenomes, respectively, and the distribution of lengths among
 assembled contigs was similar between sequences which could be assigned a
-function and those that could not (e.g. unknown sequences) (Fig. ~\ref{cornlength}, ~\ref{prairielength}
+function and those that could not (e.g. unknown sequences) (Fig.~\ref{cornlength}, ~\ref{prairielength}
 ).
 
-Through MG-RAST, annotations of the assembled corn and prairie soil metagenomes
-were also identified against the Kyoto Encylopedia of Genes and Genomes
+Annotations of the assembled corn and prairie soil metagenomes
+were also identified against the MG-RAST Kyoto Encylopedia of Genes and Genomes
 Orthology (KEGG KO) database (Release 56). In total, 152,445 and 178,012 corn
 and prairie metagenome sequences matched sequences within the KO database with a
 minimum identity 60\% and minimum length 50 bp. Among these, a total of 3,335
 unique KO identifiers (2,069 shared between corn and prairie metagenomes, 206 in
 corn alone, and 1,080 in prairie alone) were identified and found to represent
-broad metabolic functions (Fig. ~\ref{kegg}, ~\ref{kegg-dist}) involved in
+broad metabolic functions (Fig.~\ref{kegg} and Fig.~\ref{kegg-dist}) involved in
 metabolism, genetic and environmental information processing, and cellular
 processes. Notably, annotation of unassembled metagenomic reads from the same
-datasets did not result in any matches to the KEGG datatabase. (This is so far
-true for at least half of the lanes but still in progress of annotating them).
+datasets did not result in any matches to the KEGG datatabase. 
+
+%(REMOVE LATER:  This is so far true for at least half of the lanes but still in progress of annotating them).
 
 The shared presence of contigs without functional annotations in both the corn
 and prairie datasets was also evaluated. Assembled contigs that shared no
 homology to known sequences in the M5NR database were used as references for the
 complementing soil metagenome (e.g., corn assembly reference for prairie
-unassembled reads). Among these, a total of 34,436 unique contigs (31,058 and 3,416 corn and prairie contigs, respectively) were found to be shared between to the two soil metagenomes (See SI Methods). 
+unassembled reads). Among these, a total of 34,436 unique contigs (31,058 and 3,416 corn and prairie contigs, respectively) were found to be shared between to the two soil metagenomes (SI Methods). 
 
 \section*{Discussion}
-\subsection{Coverage-based filtering approaches effectively reduce datasets} 
-Our approaches for scalable metagenomic assembly
+\subsection*{Coverage-based filtering approaches reduce datasets.} 
+Our approach for scalable metagenomic assembly
 were evaluated against its application to the HGMC dataset. Although the
 diversity and sequencing depth represented by this dataset is extremely low
 compared to that of most environmental metagenomes, it represents a simplified,
@@ -308,24 +309,24 @@ of novel approaches through the availability of source genomes. We found that
 the filtering approaches described above were effective at reducing the HGMC
 dataset size without significant loss of assembly. This strategic filtering
 normalizes the abundance of reads in a dataset to a specific sequencing coverage
-(Fig. ~\ref{diginormcoverage}) and effectively reduces the volume of the dataset for assembly while
+(Fig.~\ref{diginormcoverage}) and effectively reduces the volume of the dataset for assembly while
 removing errors introduced by extraneous reads. Further, this normalization also
-resulted in more even coverage (Fig. ~\ref{diginormcoverage}), minimizing
+resulted in more even coverage (Fig.~\ref{diginormcoverage}), minimizing
 assembly problems caused by variable coverage. Further reduction of the dataset
-was achieved by the removal of extremely high abundance sequences likely to be
+was achieved by the removal of extremely high abundance sequences likely to include
 sequencing errors or artifacts.
 
 The specific effects of filtering by digital normalization varied depending on
 characteristics of HGMC genomes. We observed that variable abundance and
 conserved regions in references had an impact on the recovery of sequences in
-filtered HGMC datasets.For example, the filtered assemblies of the three
+filtered HGMC datasets. For example, the filtered assemblies of the three
 plasmids of the \emph{Staphylococcus epidermidis} genome (NC\_005008.1,
-NC\_005007.1, and NC\_005003.1) were highly abundant (Fig. ~\ref{coverage2}) and shared
+NC\_005007.1, and NC\_005003.1) were highly abundant (Fig.~\ref{coverage2}) and shared
 several conserved regions (90\% identity over more than 290 bp). During
 normalization, repetitive elements in these genomes appear as high coverage
 elements and consequently would be removed, as evidenced by a large difference
 in the number of reads associated with NC\_005008.1 in the unfiltered and
-filtered (normalized) datasets (\ref{coverage2}). Thus, the unfiltered dataset
+normalized datasets (\ref{coverage2}). Thus, the unfiltered dataset
 contained comparably more reads spanning these repetitive regions which likely
 enabled assemblers to more effectively extend the unfiltered assembly of these
 sequences, ultimately observed as an increased recovery of these genomes in
@@ -336,24 +337,24 @@ shortcoming of our approach, and indeed for most short-read assembly approaches,
 related to repetitive regions and/or polymorphisms. Although data reduction may
 cause information loss, we exchanged this disadvantage for the ability to
 assemble previously intractable datasets. Our evaluation of the HGMC dataset
-suggests that this information loss is overall minimal and that our approaches
-result in a comparable assembly whose abundance estimations are even slightly
+suggests that this information loss is overall minimal and that our approach
+results in a comparable assembly whose abundance estimations are even slightly
 improved.
 
-\subsection{Partitioning effectively separates genomes for assembly}
+\subsection*{Partitioning separates genomes for assembly.}
 Metagenomes contain many distinct genomes, which are largely disconnected from
 each other but which often share sequences due to sequence conservation or
-lateral transfer. Our pre-filtering approach removes both common multi-genome
-elements as well as artificial connectivity stemming from the sequencing
+lateral transfer. Our pre-filtering normalization approach removes both common multi-genome
+elements as well as most artificial connectivity stemming from the sequencing
 process. The removal of these sequences does not significantly alter the
 recovery of HMGC reference genomes through {\em de novo} assembly: the resulting
 assemblies of unfiltered, coverage filtered, and coverage filtered and
 partitioned datasets were nearly identical. Further, the large majority of these
 partitions contained reads from a single reference genome, supporting our
 previous hypothesis that most connected subgraphs contain reads from distinct
-genomes \cite{Pell:2012cq}. High abundance, well-sampled genomes were found to
-contain fewer partitions and low abundance, while under-sampled genomes
-contained more partitions due to fragmentation of the assembly graph.
+genomes \cite{Pell:2012cq}. Well-sampled genomes (e.g., high sequencing coverage) were found to
+be represented in fewer partitions, while under-sampled genomes
+were identified in more partitions due to fragmentation of the assembly graph.
 
 To further examine the recovery of sequences through partitioning,
 computationally-derived sequences from one or more \emph{E. coli} strains were
@@ -361,11 +362,11 @@ amended to the HGMC dataset. When we spiked in a single \emph{E. coli} strain,
 we could reassemble 99\% of the original genome. If five closely related strains
 were added to the HMGC dataset, we could recover the large majority of the
 genomic content of these strains, albeit largely in chimeric contigs. This particular
-result is not unique to our approaches, however, as the comparable unfiltered assembly 
+result is not unique to our approach, however, as the comparable unfiltered assembly 
 dataset resulted in a slightly higher fraction of assembled contigs associated
 with multiple references. Overall, closely related sequences which result from
 either repetitive or inter-strain polymorphisms challenge assemblers, and our
-approaches are not specifically designed to target such regions. However, the
+approach is not specifically designed to target such regions. However, the
 partitions resulting from our approach could provide a much reduced subset of
 sequences to be targeted for more sensitive assembly approaches for highly
 variable regions (i.e. overlap-layout-consensus approaches or abundance binning
@@ -373,13 +374,13 @@ approaches \cite{Sharon:2012kx}).
 
 One valuable result of partitioning is that it subdivides our datasets into sets
 of reads which can be assembled with minimal computational resources. For the
-HGMC dataset,this gain was small, reducing unfiltered assembly at 12 GB and 4
+HGMC dataset, this gain was small, reducing unfiltered assembly at 12 GB and 4
 hours to less than 2 GB and 1 hour. However, for the soil metagenomes,
 previously impossible assemblies could be completed in less than a day and in
 under 14 GB of memory enabling the usage of multiple assembly parameters (e.g.,
 k-length) and multiple assemblers (Velvet, SOAPdenovo, and MetaIDBA).
 
-\subsection{Benefits of soil assembly} 
+\subsection*{Benefits of soil assembly.} 
 This study represents the largest
 published soil metagenomic sequencing effort to date, and these assembly results
 demonstrate the enormous amount of diversity within the soil. Even with this
@@ -406,22 +407,22 @@ related to sequences of phage origin ({\em Pseudomonas} phage PaP2, Table ~\ref{
 
 Unlike the unassembled metagenome sequences, the longer lengths of assembled
 sequences allowed for the identification of metabolic pathways within the framework of 
-the KEGG orthology (Fig. ~\ref{kegg}) and showed that these
+the KEGG orthology (Fig.~\ref{kegg}) and showed that these
 soil metagenomes represent a broad catalog of the majority of known metabolic pathways. We
 identified unique metabolic contributions of the prairie microbial communities
 relative to that of the corn, especially involved in cellular processes (e.g.,
 cell growth and death and transport and catabolism) and genetic information
 processing (e.g., folding, sorting, and degradation; translation; and
-transcription) (Fig. ~\ref{kegg-dist}). This result may reflect the varying managment
-history of these two soils. Unlike the prairie soils which have been unmanaged
-for the past 35 years, the corn soils have had annual additions of animal manure
+transcription) (Fig.~\ref{kegg-dist}). This result may reflect the varying managment
+history of these two soils. Unlike the prairie soils which have not been grazed
+for the past 35 years, the corn soils have been cultivated and have had annual additions of animal manure
 that could potentially enrich for specific metabolic pathways with decreased
 diversity.
 
 More than half of the assembled contigs were not similar to any sequence
 in the MG-RAST m5nr databases, suggesting that soil holds considerable unexplored taxonomic
 and functional novelty. These "unknown" sequences are
-broadly distributed in both length and abundance (Fig. ~\ref{cornlength}, ~\ref{prairielength}) and
+broadly distributed in both length and abundance (Fig.~\ref{cornlength}, ~\ref{prairielength}) and
 represent the potential of new discovery using metagenomic sequencing. 
 These sequences highlight the value of using {\em de novo}
 assemblies as reference datasets that are more representative of site-specific
@@ -451,8 +452,7 @@ provide the critical referenceswhich will enable future investigations of soils
 and other complex environments. \begin{materials} Assemblies of the HGMC and
 soil metagenomes using various software were peformed on (1) quality-filtered
 unassembled and (2) the same sequences filtered by digital normalization
-(coverage threshold (C) = 20 bp, as previously described in browndiginorm,
-removal of high coverage sequences (C > 50), and partitioning disconnected sets
+(coverage threshold (C) = 20 bp, removal of high coverage sequences (C > 50), and partitioning disconnected sets
 of reads. Coverage of assembled sequences or reference genomes was estimated
 through consensus alignment of raw sequences, and assembled contigs were
 compared to one another or reference genomes through blastn alignment (refer to
@@ -477,62 +477,93 @@ John Johnson and Eric McDonald at MSU HPC. \end{acknowledgments}
 
 \begin{thebibliography}{10}
 
-\bibitem{Arumugam:2011p735} Arumugam, M, Raes, J, Pelletier, E, Paslier, D.~L,
-Yamada, T, Mende, D.~R, Fernandes, G.~R, Tap, J, Bruls, T, Batto, J.-M,
-Bertalan, M, Borruel, N, Casellas, F, Fernandez, L, Gautier, L, Hansen, T,
-Hattori, M, Hayashi, T, Kleerebezem, M, Kurokawa, K, Leclerc, M, Levenez, F,
-Manichanh, C, Nielsen, H.~B, Nielsen, T, Pons, N, Poulain, J, Qin, J,
-Sicheritz-Ponten, T, Tims, S, Torrents, D, Ugarte, E, Zoetendal, E.~G, Wang, J,
-Guarner, F, Pedersen, O, de~Vos, W.~M, Brunak, S, Dor{\'e}, J, Consortium, M,
-Antol{\'\i}n, M, Artiguenave, F, Blottiere, H.~M, Almeida, M, Brechot, C, Cara,
-C, Chervaux, C, Cultrone, A, Delorme, C, Denariaz, G, Dervyn, R, Foerstner,
-K.~U, Friss, C, van~de Guchte, M, Guedon, E, Haimet, F, Huber, W, van
-Hylckama-Vlieg, J, Jamet, A, Juste, C, Kaci, G, Knol, J, Lakhdari, O, Layec, S,
-Roux, K.~L, Maguin, E, M{\'e}rieux, A, Minardi, R.~M, M'rini, C, Muller, J,
-Oozeer, R, Parkhill, J, Renault, P, Rescigno, M, Sanchez, N, Sunagawa, S,
-Torrejon, A, Turner, K, Vandemeulebrouck, G, Varela, E, Winogradsky, Y, Zeller,
-G, Weissenbach, J, Ehrlich, S.~D, \& Bork, P. \newblock (2011) Enterotypes of
+\bibitem{Arumugam:2011p735} Arumugam, M, \& et al. \newblock (2011) Enterotypes of
 the human gut microbiome. \newblock {\em Nature} {\bf 473}, 174--80.
 
-\bibitem{Hess:2011p686} Hess, M, Sczyrba, A, Egan, R, Kim, T.-W, Chokhawala, H,
-Schroth, G, Luo, S, Clark, D.~S, Chen, F, Zhang, T, Mackie, R.~I, Pennacchio,
-L.~A, Tringe, S.~G, Visel, A, Woyke, T, Wang, Z, \& Rubin, E.~M. \newblock
+%\bibitem{Arumugam:2011p735} Arumugam, M, Raes, J, Pelletier, E, Paslier, D.~L,
+%Yamada, T, Mende, D.~R, Fernandes, G.~R, Tap, J, Bruls, T, Batto, J.-M,
+%Bertalan, M, Borruel, N, Casellas, F, Fernandez, L, Gautier, L, Hansen, T,
+%Hattori, M, Hayashi, T, Kleerebezem, M, Kurokawa, K, Leclerc, M, Levenez, F,
+%Manichanh, C, Nielsen, H.~B, Nielsen, T, Pons, N, Poulain, J, Qin, J,
+%Sicheritz-Ponten, T, Tims, S, Torrents, D, Ugarte, E, Zoetendal, E.~G, Wang, J,
+%Guarner, F, Pedersen, O, de~Vos, W.~M, Brunak, S, Dor{\'e}, J, Consortium, M,
+%Antol{\'\i}n, M, Artiguenave, F, Blottiere, H.~M, Almeida, M, Brechot, C, Cara,
+%C, Chervaux, C, Cultrone, A, Delorme, C, Denariaz, G, Dervyn, R, Foerstner,
+%K.~U, Friss, C, van~de Guchte, M, Guedon, E, Haimet, F, Huber, W, van
+%Hylckama-Vlieg, J, Jamet, A, Juste, C, Kaci, G, Knol, J, Lakhdari, O, Layec, S,
+%Roux, K.~L, Maguin, E, M{\'e}rieux, A, Minardi, R.~M, M'rini, C, Muller, J,
+%Oozeer, R, Parkhill, J, Renault, P, Rescigno, M, Sanchez, N, Sunagawa, S,
+%Torrejon, A, Turner, K, Vandemeulebrouck, G, Varela, E, Winogradsky, Y, Zeller,
+%G, Weissenbach, J, Ehrlich, S.~D, \& Bork, P. \newblock (2011) Enterotypes of
+%the human gut microbiome. \newblock {\em Nature} {\bf 473}, 174--80.
+
+\bibitem{Hess:2011p686} Hess, M \& et al. \newblock
 (2011) Metagenomic discovery of biomass-degrading genes and genomes from cow
 rumen. \newblock {\em Science} {\bf 331}, 463--7.
 
-\bibitem{Iverson:2012p1281} Iverson, V, Morris, R.~M, Frazar, C.~D, Berthiaume,
-C.~T, Morales, R.~L, \& Armbrust, E.~V. \newblock (2012) Untangling genomes from
+%\bibitem{Hess:2011p686} Hess, M, Sczyrba, A, Egan, R, Kim, T.-W, Chokhawala, H,
+%Schroth, G, Luo, S, Clark, D.~S, Chen, F, Zhang, T, Mackie, R.~I, Pennacchio,
+%L.~A, Tringe, S.~G, Visel, A, Woyke, T, Wang, Z, \& Rubin, E.~M. \newblock
+%(2011) Metagenomic discovery of biomass-degrading genes and genomes from cow
+%rumen. \newblock {\em Science} {\bf 331}, 463--7.
+
+
+\bibitem{Iverson:2012p1281} Iverson, V, \& et al. \newblock (2012) Untangling genomes from
 metagenomes: revealing an uncultured class of marine euryarchaeota. \newblock
 {\em Science} {\bf 335}, 587--90.
 
-\bibitem{Mackelprang:2011p1087} Mackelprang, R, Waldrop, M.~P, DeAngelis, K.~M,
-David, M.~M, Chavarria, K.~L, Blazewicz, S.~J, Rubin, E.~M, \& Jansson, J.~K.
+%\bibitem{Iverson:2012p1281} Iverson, V, Morris, R.~M, Frazar, C.~D, Berthiaume,
+%C.~T, Morales, R.~L, \& Armbrust, E.~V. \newblock (2012) Untangling genomes from
+%metagenomes: revealing an uncultured class of marine euryarchaeota. \newblock
+%{\em Science} {\bf 335}, 587--90.
+
+
+\bibitem{Mackelprang:2011p1087} Mackelprang, R, \& et al.
 \newblock (2011) Metagenomic analysis of a permafrost microbial community
 reveals a rapid response to thaw. \newblock {\em Nature} {\bf 480}, 368--71.
 
-\bibitem{Qin:2010p189} Qin, J, Li, R, Raes, J, Arumugam, M, Burgdorf, K.~S,
-Manichanh, C, Nielsen, T, Pons, N, Levenez, F, Yamada, T, Mende, D.~R, Li, J,
-Xu, J, Li, S, Li, D, Cao, J, Wang, B, Liang, H, Zheng, H, Xie, Y, Tap, J,
-Lepage, P, Bertalan, M, Batto, J.-M, Hansen, T, Paslier, D.~L, Linneberg, A,
-Nielsen, H.~B, Pelletier, E, Renault, P, Sicheritz-Ponten, T, Turner, K, Zhu, H,
-Yu, C, Li, S, Jian, M, Zhou, Y, Li, Y, Zhang, X, Li, S, Qin, N, Yang, H, Wang,
-J, Brunak, S, Dor{\'e}, J, Guarner, F, Kristiansen, K, Pedersen, O, Parkhill, J,
-Weissenbach, J, Consortium, M, Bork, P, Ehrlich, S.~D, \& Wang, J. \newblock
+%\bibitem{Mackelprang:2011p1087} Mackelprang, R, Waldrop, M.~P, DeAngelis, K.~M,
+%David, M.~M, Chavarria, K.~L, Blazewicz, S.~J, Rubin, E.~M, \& Jansson, J.~K.
+%\newblock (2011) Metagenomic analysis of a permafrost microbial community
+%reveals a rapid response to thaw. \newblock {\em Nature} {\bf 480}, 368--71.
+
+\bibitem{Qin:2010p189} Qin, J, \& et al. \newblock
 (2010) A human gut microbial gene catalogue established by metagenomic
 sequencing. \newblock {\em Nature} {\bf 464}, 59--65.
+%
+%\bibitem{Qin:2010p189} Qin, J, Li, R, Raes, J, Arumugam, M, Burgdorf, K.~S,
+%Manichanh, C, Nielsen, T, Pons, N, Levenez, F, Yamada, T, Mende, D.~R, Li, J,
+%Xu, J, Li, S, Li, D, Cao, J, Wang, B, Liang, H, Zheng, H, Xie, Y, Tap, J,
+%Lepage, P, Bertalan, M, Batto, J.-M, Hansen, T, Paslier, D.~L, Linneberg, A,
+%Nielsen, H.~B, Pelletier, E, Renault, P, Sicheritz-Ponten, T, Turner, K, Zhu, H,
+%Yu, C, Li, S, Jian, M, Zhou, Y, Li, Y, Zhang, X, Li, S, Qin, N, Yang, H, Wang,
+%J, Brunak, S, Dor{\'e}, J, Guarner, F, Kristiansen, K, Pedersen, O, Parkhill, J,
+%Weissenbach, J, Consortium, M, Bork, P, Ehrlich, S.~D, \& Wang, J. \newblock
+%(2010) A human gut microbial gene catalogue established by metagenomic
+%sequencing. \newblock {\em Nature} {\bf 464}, 59--65.
 
-\bibitem{Tringe:2005p174} Tringe, S.~G, von Mering, C, Kobayashi, A, Salamov,
-A.~A, Chen, K, Chang, H.~W, Podar, M, Short, J.~M, Mathur, E.~J, Detter, J.~C,
-Bork, P, Hugenholtz, P, \& Rubin, E.~M. \newblock (2005) Comparative
+
+\bibitem{Tringe:2005p174} Tringe, S.~G, \& et al. \newblock (2005) Comparative
 metagenomics of microbial communities. \newblock {\em Science} {\bf 308},
 554--7.
+%
+%
+%\bibitem{Tringe:2005p174} Tringe, S.~G, von Mering, C, Kobayashi, A, Salamov,
+%A.~A, Chen, K, Chang, H.~W, Podar, M, Short, J.~M, Mathur, E.~J, Detter, J.~C,
+%Bork, P, Hugenholtz, P, \& Rubin, E.~M. \newblock (2005) Comparative
+%metagenomics of microbial communities. \newblock {\em Science} {\bf 308},
+%554--7.
 
-\bibitem{Venter:2004p170} Venter, J.~C, Remington, K, Heidelberg, J.~F, Halpern,
-A.~L, Rusch, D, Eisen, J.~A, Wu, D, Paulsen, I, Nelson, K.~E, Nelson, W, Fouts,
-D.~E, Levy, S, Knap, A.~H, Lomas, M.~W, Nealson, K, White, O, Peterson, J,
-Hoffman, J, Parsons, R, Baden-Tillson, H, Pfannkoch, C, Rogers, Y.-H, \& Smith,
-H.~O. \newblock (2004) Environmental genome shotgun sequencing of the sargasso
+
+\bibitem{Venter:2004p170} Venter, J.~C, \& et al. \newblock (2004) Environmental genome shotgun sequencing of the sargasso
 sea. \newblock {\em Science} {\bf 304}, 66--74.
+%
+%\bibitem{Venter:2004p170} Venter, J.~C, Remington, K, Heidelberg, J.~F, Halpern,
+%A.~L, Rusch, D, Eisen, J.~A, Wu, D, Paulsen, I, Nelson, K.~E, Nelson, W, Fouts,
+%D.~E, Levy, S, Knap, A.~H, Lomas, M.~W, Nealson, K, White, O, Peterson, J,
+%Hoffman, J, Parsons, R, Baden-Tillson, H, Pfannkoch, C, Rogers, Y.-H, \& Smith,
+%H.~O. \newblock (2004) Environmental genome shotgun sequencing of the sargasso
+%sea. \newblock {\em Science} {\bf 304}, 66--74.
 
 \bibitem{Gans:2005p1365} Gans, J, Wolinsky, M, \& Dunbar, J. \newblock (2005)
 Computational improvements reveal great bacterial diversity and high metal
@@ -542,30 +573,40 @@ toxicity in soil. \newblock {\em Science} {\bf 309}, 1387--90.
 (2012) Next generation sequencing and bioinformatic bottlenecks: the current
 state of metagenomic data analysis. \newblock {\em Current Opinion in
 Biotechnology} {\bf 23}, 9--15.
+%
+%\bibitem{browndiginorm} Brown, C.~T, Howe, A, Zhang, Q, Pyrkosz, A.~B, \& Brom,
+%T.~H. \newblock (2012) A reference-free algorithm for computational
+%normalization of shotgun sequencing data. \newblock {\em arXiv:1203.4802}.
+%
+%\bibitem{howeartifacts} Howe, A.~C, Pell, J, Canino-Koning, R, Mackelprang, R,
+%Tringe, S, Jansson, J, Tiedje, J.~M, \& Brown, C.~T. \newblock (2012) Illumina
+%sequencing artifacts revealed by connectivity analysis of illumina sequencing
+%artifacts revealed by connectivity analysis of metagenomic datasets. \newblock
+%{\em arXiv:1212.0159}.
 
-\bibitem{browndiginorm} Brown, C.~T, Howe, A, Zhang, Q, Pyrkosz, A.~B, \& Brom,
-T.~H. \newblock (2012) A reference-free algorithm for computational
-normalization of shotgun sequencing data. \newblock {\em arXiv:1203.4802}.
-
-\bibitem{howeartifacts} Howe, A.~C, Pell, J, Canino-Koning, R, Mackelprang, R,
-Tringe, S, Jansson, J, Tiedje, J.~M, \& Brown, C.~T. \newblock (2012) Illumina
-sequencing artifacts revealed by connectivity analysis of illumina sequencing
-artifacts revealed by connectivity analysis of metagenomic datasets. \newblock
-{\em arXiv:1212.0159}.
-
-\bibitem{Pell:2012cq} Pell, J, Hintze, A, Canino-Koning, R, Howe, A, Tiedje,
-J.~M, \& Brown, C.~T. \newblock (2012) {Scaling metagenome sequence assembly
+\bibitem{Pell:2012cq} Pell, J, \& et al. \newblock (2012) {Scaling metagenome sequence assembly
 with probabilistic de Bruijn graphs}. \newblock {\em Proceedings of the National
 Academy of Sciences of the United States of America} {\bf 109}, 13272--13277.
+
+%
+%\bibitem{Pell:2012cq} Pell, J, Hintze, A, Canino-Koning, R, Howe, A, Tiedje,
+%J.~M, \& Brown, C.~T. \newblock (2012) {Scaling metagenome sequence assembly
+%with probabilistic de Bruijn graphs}. \newblock {\em Proceedings of the National
+%Academy of Sciences of the United States of America} {\bf 109}, 13272--13277.
+
 
 \bibitem{Zerbino:2008p665} Zerbino, D.~R \& Birney, E. \newblock (2008) Velvet:
 algorithms for de novo short read assembly using de bruijn graphs. \newblock
 {\em Genome Res} {\bf 18}, 821--9.
 
-\bibitem{Li:2010jz} Li, R, Zhu, H, Ruan, J, Qian, W, Fang, X, Shi, Z, Li, Y, Li,
-S, Shan, G, Kristiansen, K, Li, S, Yang, H, Wang, J, \& Wang, J. \newblock
+\bibitem{Li:2010jz} Li, R, \& et al. \newblock
 (2010) {De novo assembly of human genomes with massively parallel short read
 sequencing}. \newblock {\em Genome Research} {\bf 20}, 265--272.
+
+%\bibitem{Li:2010jz} Li, R, Zhu, H, Ruan, J, Qian, W, Fang, X, Shi, Z, Li, Y, Li,
+%S, Shan, G, Kristiansen, K, Li, S, Yang, H, Wang, J, \& Wang, J. \newblock
+%(2010) {De novo assembly of human genomes with massively parallel short read
+%sequencing}. \newblock {\em Genome Research} {\bf 20}, 265--272.
 
 \bibitem{Peng:2011p898} Peng, Y, Leung, H. C.~M, Yiu, S.~M, \& Chin, F. Y.~L.
 \newblock (2011) Meta-idba: a de novo assembler for metagenomic data. \newblock
@@ -579,10 +620,15 @@ Research} {\bf 18}, 324--30.
 (2001) An eulerian path approach to dna fragment assembly. \newblock {\em Proc
 Natl Acad Sci USA} {\bf 98}, 9748--53.
 
-\bibitem{Sharon:2012kx} Sharon, I, Morowitz, M.~J, Thomas, B.~C, Costello, E.~K,
-Relman, D.~A, \& Banfield, J.~F. \newblock (2012) {Time series community
+
+\bibitem{Sharon:2012kx} Sharon, I, \& et al. \newblock (2012) {Time series community
 genomics analysis reveals rapid shifts in bacterial species, strains, and phage
 during infant gut colonization}. \newblock {\em Genome Research}.
+
+%\bibitem{Sharon:2012kx} Sharon, I, Morowitz, M.~J, Thomas, B.~C, Costello, E.~K,
+%Relman, D.~A, \& Banfield, J.~F. \newblock (2012) {Time series community
+%genomics analysis reveals rapid shifts in bacterial species, strains, and phage
+%during infant gut colonization}. \newblock {\em Genome Research}.
 
 \bibitem{Girvan:2005jv} Girvan, M.~S, Campbell, C.~D, Killham, K, Prosser, J.~I,
 \& Glover, L.~A. \newblock (2005) {Bacterial diversity promotes community
@@ -626,19 +672,18 @@ and prairie soil metagenomes.} \label{kegg-dist} \end{center} \end{figure}
 
 
 
-\begin{table} \caption{The X total number of reads in unfiltered, filtered
-(normalized and high abundance (HA) k-mer removal), and partitioned datasets and
+\begin{table} \caption{The total number of reads in unfiltered, normalized, and partitioned datasets and
 the computational resources required (memory and time).}
-\begin{tabular}{@{\extracolsep{\fill}}lrcccc} 
+\begin{tabular}{@{\extracolsep{\fill}}lccccc} 
 \hline
-& Unfiltered & Filtered &
+& Unfiltered & Normalized & 
 Partitioned \cr & Reads (Mbp) & Reads (Mbp) & Reads (Mbp) \cr \hline HMP Mock &
 14,494,884 (1,136) & 8,656,520 (636) & 8,560,124 (631) \cr HMP Mock Spike &
 14,992,845 (1,137) & 8,189,928 (612) & 8,094,475 (607) \cr HMP Mock Multispike &
 17,010,607 (1,339) & 9,037,142 (702) & 8,930,840 (697) \cr Iowa Corn &
 1,810,630,781 (140,750) & 1,406,361,241 (91,043) & 1,040,396,940 (77,603) \cr
 Iowa Prairie & 3,303,375,485 (256,610) & 2,241,951,533 (144,962) & 1,696,187,797
-(125,105) \cr \cr & Unfiltered (GB / h) & Filtered and Partitioned (GB / h) \cr
+(125,105) \cr \cr & Filter I: Normalization  & Filter II:  Partitioning & \cr &  (GB / h) &  (GB / h) \cr
 HMP Mock & 4 / $<$2 & 4 / $<$2 \cr HMP Mock Spike & 4 / $<$2 & 4 / $<$2 \cr HMP
 Mock Multispike & 4 / $<$2 & 4 / $<$2 \cr Iowa Corn & 188 / 83 & 234 / 120 \cr
 Iowa Prairie & 258 / 178 & 287 / 310 \cr \hline \end{tabular}
@@ -646,13 +691,13 @@ Iowa Prairie & 258 / 178 & 287 / 310 \cr \hline \end{tabular}
 
 
 \begin{table} \caption{Assembly summary statistics (total contigs, total million
-bp assembly length, maximum contig size bp) of unfiltered (UF) and filtered (F)
-or filtered/partitioned (FP) datasets with Velvet (V) assembler. Assembly for UF
-and FP datasets also shown for MetaIDBA (M) and SOAPdenovo(S) assemblers. Iowa
+bp assembly length, maximum contig size bp) of unfiltered (UF) and normalized filtered (NF)
+or partitioned (P) datasets with Velvet (V) assembler. Assembly for UF
+and P datasets also shown for MetaIDBA (M) and SOAPdenovo(S) assemblers. Assemblies of Iowa
 corn and prairie metagenomes could not be completed on unfiltered datasets.}
-\begin{tabular} {@{\extracolsep{\fill}}rrrrrrrrrrrrr}
+\begin{tabular} {@{\extracolsep{\fill}}lcccc}
 \hline
- & UF & F & FP & Assembler
+ & UF & NF & P & Assembler
 \cr \hline HMP Mock & 29,063 / 38 / 146,795 & 30,082 / 35 / 90,497 & 30,115 / 35
 / 90,497 & V \cr HMP Mock & 24,300 / 36 / 86,445 & - & 27,475 / 36 / 96,041 & M
 \cr HMP Mock & 36,689 / 37 / 32,736 & - & 29,295 / 37 / 58,598 & S \cr Iowa corn
@@ -662,8 +707,7 @@ Iowa prairie & N/A & N/A & 3,120,263 / 1,510 / 9,397 & V \cr Iowa prairie & N/A
 & N/A & 2,102,163 / 998 / 7,206 & M \cr Iowa prairie & N/A & N/A & 2,599,767 /
 1,145 / 5,423 & S \cr \hline \end{tabular} \label{assembly-summary} \end{table}
 
-\begin{table} \caption{Fraction of single-end (SE) and paired-end (PE) reads
-mapped to Iowa corn and prairie Velvet assemblies.}
+\begin{table} \caption{Unassembled reads (single-end (SE) and paired-end (PE)) mapped to Iowa corn and prairie Velvet assemblies.}
 \begin{tabular}{@{\extracolsep{\fill}}lcc} 
 \hline
 & Iowa Corn Assembly & Iowa Prairie
@@ -685,214 +729,49 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 
 
 \begin{figure}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/new_flowchart.eps}}
-\caption{Unfiltered and filtered (by coverage) datasets and assemblies compared in this study.}
 \label{flowchart}
 \end{figure}
 
 
 \begin{figure}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/coverage.eps}}
-\caption{Number of basepairs with specified coverage for reads which
-  map to reference genomes and unfiltered and filtered assembled
-  contigs greater than 300 bp.}
 \label{coveragehmp}
 \end{figure}
 
 \begin{figure}
-\center{\includegraphics[width=.7\textwidth]{./figures/coverage1.eps}}
-\caption{Coverage of reference genomes by unfiltered and filtered
-  assembled contigs and unfiltered and filtered reads.}
 \label{coverage1}
 \end{figure}
 
 \begin{figure}
-\center{\includegraphics[width=.7\textwidth]{./figures/coverage2.eps}}
-\caption{Coverage of reference genomes by unfiltered and filtered
-  assembled contigs and unfiltered and filtered reads.}
 \label{coverage2}
 \end{figure}
 
 \begin{figure}
-\begin{center}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/fig2-diginormhist.eps}}
-\caption{K-mer coverage of Iowa corn and prairie metagenomes before
-  and after filtering approaches.}
 \label{diginormcoverage}
-\end{center}
 \end{figure}
 
 \begin{figure}
-\begin{center}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/corn-cov-len-500.eps}}
-\caption{Length distribution of longest assembled corn metagenome sequences with and without similarity to known sequences.  Coverage (log-scale) of these sequences is also shown by the size of marker. }
 \label{cornlength}
-\end{center}
 \end{figure}
 
 \begin{figure}
-\begin{center}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/prairie-cov-len-500.eps}}
-\caption{Length distribution of longest assembled prairie metagenome sequences with and without similarity to known sequences.  Coverage (log-scale) of these sequences is also shown by the size of marker. }
 \label{prairielength}
-\end{center}
 \end{figure}
 
 \begin{figure}
-\begin{center}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/metabolism_kegg_pathway_all.eps}}
-\caption{KEGG pathways sharing similarity with assembled soil metagenome sequences (black=combined corn and prairie, yellow = prairie only, orange = corn only.}
 \label{kegg}
-\end{center}
 \end{figure}
 
 
 \begin{table}
-\caption{Assembly comparisons of unfiltered (UF) and filtered (F) or
-  filtered/partitioned (FP) HMP mock datasets using different
-  assemblers (Velvet (V), MetaIDBA (M) and SOAPdenovo (S)).  Assembly
-  content similarity is based on the fraction of alignment of
-  assemblies and similarly, the coverage of reference genomes is based
-  on the alignment of assembled contigs to reference genomes (RG).}
-\begin{tabular}{@{\extracolsep{\fill}}lcccc}
-\hline
-Assembly Comparison & Percent Similarity
- & RG Coverage & Assembler \\
-\hline
-UF vs. F & 95\% & 43.3\% / 44.5\% & V \\
-UF vs. FP & 95\% & 43.3\% / 44.4\% & V\\
-UF vs. FP & 93\% & 46.5\% / 45.4\% & M\\ 
-UF vs. FP & 98\% &  46.2\% / 46.4\% & S\\
-\hline
-\end{tabular}
 \label{assembly-compare}
 \end{table}
 
 \begin{table}
-\caption{HMP mock dataset reference genomes estimated sequencing depth
-  (median bp coverage of reads), number of partitions, total length
-  (bp), coverage of reference genomes by unfiltered reads (UF Cov),
-  coverage of reference genomes by filtered reads (F Cov), coverage of
-  reference genomes by unfiltered assembled contigs (UFA Cov), and
-  coverage of reference genomes by filtered assembled contigs (FA
-  Cov).}
-\begin{tabular}{@{\extracolsep{\fill}}l c c c c c c c}
-\hline Reference Genome & Coverage & No. Partitions & Length (bp) & UF
-Cov (bp) & F Cov (bp) & UFA Cov & FA Cov \\ \hline
-gi\textbar{}32470588\textbar{}ref\textbar{}NC\_005008.1\textbar{} &
-2,412 & 9 & 4,439 & 4,439 & 1,058 & 100 \% & 28 \% \\
-gi\textbar{}32470581\textbar{}ref\textbar{}NC\_005007.1\textbar{} &
-549 & 16 & 4,679 & 4,679 & 4,585 & 100 \% & 77 \% \\
-gi\textbar{}32470520\textbar{}ref\textbar{}NC\_005003.1\textbar{} &
-533 & 21 & 6,585 & 6,585 & 6,441 & 100 \% & 64 \% \\
-gi\textbar{}32470572\textbar{}ref\textbar{}NC\_005006.1\textbar{} &
-253 & 2 & 8,007 & 8,004 & 7,953 & 100 \% & 100 \% \\
-gi\textbar{}32470532\textbar{}ref\textbar{}NC\_005004.1\textbar{} &
-112 & 52 & 24,365 & 24,358 & 24,291 & 100 \% & 83 \% \\
-gi\textbar{}126640109\textbar{}ref\textbar{}NC\_009084.1\textbar{} &
-85 & 3 & 11,302 & 11,295 & 11,270 & 100 \% & 100 \% \\
-gi\textbar{}32470555\textbar{}ref\textbar{}NC\_005005.1\textbar{} & 74
-& 12 & 17,261 & 17,202 & 17,180 & 100 \% & 100 \% \\
-gi\textbar{}10957398\textbar{}ref\textbar{}NC\_000958.1\textbar{} & 71
-& 73 & 177,466 & 177,261 & 174,614 & 100 \% & 95 \% \\
-gi\textbar{}10957530\textbar{}ref\textbar{}NC\_000959.1\textbar{} & 52
-& 37 & 45,704 & 44,974 & 43,557 & 100 \% & 92 \% \\
-gi\textbar{}126640097\textbar{}ref\textbar{}NC\_009083.1\textbar{} &
-48 & 2 & 13,408 & 13,405 & 13,383 & 100 \% & 100 \% \\
-gi\textbar{}15807672\textbar{}ref\textbar{}NC\_001264.1\textbar{} & 40
-& 63 & 412,348 & 410,970 & 403,553 & 100 \% & 99 \% \\
-gi\textbar{}15805042\textbar{}ref\textbar{}NC\_001263.1\textbar{} & 32
-& 546 & 2,648,638 & 2,634,512 & 2,589,566 & 100 \% & 99 \% \\
-gi\textbar{}27466918\textbar{}ref\textbar{}NC\_004461.1\textbar{} & 30
-& 476 & 2,499,279 & 2,498,081 & 2,492,248 & 100 \% & 98 \% \\
-gi\textbar{}125654693\textbar{}ref\textbar{}NC\_009008.1\textbar{} &
-29 & 14 & 37,100 & 36,585 & 33,250 & 94 \% & 96 \% \\
-gi\textbar{}161508266\textbar{}ref\textbar{}NC\_010079.1\textbar{} &
-29 & 442 & 2,872,915 & 2,298,758 & 2,157,196 & 100 \% & 92 \% \\
-gi\textbar{}77404776\textbar{}ref\textbar{}NC\_007490.1\textbar{} & 27
-& 27 & 100,828 & 99,385 & 93,550 & 100 \% & 96 \% \\
-gi\textbar{}125654605\textbar{}ref\textbar{}NC\_009007.1\textbar{} &
-24 & 92 & 114,045 & 108,526 & 97,860 & 100 \% & 96 \% \\
-gi\textbar{}77404693\textbar{}ref\textbar{}NC\_007489.1\textbar{} & 18
-& 12 & 105,284 & 102,212 & 96,169 & 100 \% & 99 \% \\
-gi\textbar{}24378532\textbar{}ref\textbar{}NC\_004350.1\textbar{} & 16
-& 131 & 2,030,921 & 2,029,376 & 2,025,544 & 100 \% & 99 \% \\
-gi\textbar{}77404592\textbar{}ref\textbar{}NC\_007488.1\textbar{} & 13
-& 30 & 114,178 & 103,351 & 93,637 & 100 \% & 99 \% \\
-gi\textbar{}77461965\textbar{}ref\textbar{}NC\_007493.1\textbar{} & 13
-& 628 & 3,188,609 & 2,919,441 & 2,681,855 & 100 \% & 99 \% \\
-gi\textbar{}77464988\textbar{}ref\textbar{}NC\_007494.1\textbar{} & 13
-& 262 & 943,016 & 862,781 & 788,626 & 100 \% & 98 \% \\
-gi\textbar{}126640115\textbar{}ref\textbar{}NC\_009085.1\textbar{} &
-11 & 683 & 3,976,747 & 3,939,190 & 3,936,208 & 99 \% & 99 \% \\
-gi\textbar{}148642060\textbar{}ref\textbar{}NC\_009515.1\textbar{} & 9
-& 552 & 1,853,160 & 1,828,231 & 1,826,639 & 99 \% & 98 \% \\
-gi\textbar{}150002608\textbar{}ref\textbar{}NC\_009614.1\textbar{} & 7
-& 7,751 & 5,163,189 & 4,899,622 & 4,896,808 & 81 \% & 82 \% \\
-gi\textbar{}15644634\textbar{}ref\textbar{}NC\_000915.1\textbar{} & 6
-& 2,888 & 1,667,867 & 1,581,502 & 1,581,024 & 78 \% & 79 \% \\
-gi\textbar{}194172857\textbar{}ref\textbar{}NC\_003028.3\textbar{} & 6
-& 4,123 & 2,160,842 & 2,047,832 & 2,037,347 & 78 \% & 78 \% \\
-gi\textbar{}49175990\textbar{}ref\textbar{}NC\_000913.2\textbar{} & 6
-& 5,913 & 4,639,675 & 4,080,605 & 4,074,119 & 84 \% & 85 \% \\
-gi\textbar{}50841496\textbar{}ref\textbar{}NC\_006085.1\textbar{} & 6
-& 6,459 & 2,560,265 & 2,169,547 & 2,169,056 & 59 \% & 64 \% \\
-gi\textbar{}77358697\textbar{}ref\textbar{}NC\_003112.2\textbar{} & 4
-& 9,269 & 2,272,360 & 1,655,023 & 1,626,301 & 28 \% & 33 \% \\
-\hline
-\end{tabular}
 \label{ref-summary}
 \end{table}
 
 
 \begin{table}
-\caption{Longest contigs in the corn and prairie soil metagenome with similarity to the RefSeq database. (*Indicates SEED database origin if no RefSeq organismal annotaiton available.)}
-\begin{tabular}{@{\extracolsep{\fill}}lccl}
-\hline
-Contig ID & Length (bp) & Coverage &  Function \& Organsim \\
- \hline
-iowa-corn-3-pass.4582796.20234*	&	20234	&	138	&	Probable poly(beta-D-mannuronate) O-acetylase (EC 2.3.1.-)	\\
-	&		&		&	Cyanothece sp PCC 7425	\\
-iowa-corn-3-pass.4606542.17507	&	17507	&	30	&	hypothetical protein	\\
-	&		&		&	Pseudomonas phage PaP2	\\
-iowa-corn-3-pass.4578484.16126	&	16126	&	62	&	hypothetical protein	\\
-	&		&		&	Pseudomonas phage PaP2	\\
-iowa-corn-3-pass.4583611.12814	&	12814	&	18	&	replication factor C large subunit	\\
-	&		&		&	Candidatus Methanoregula boonei 6A8	\\
-iowa-corn-3-pass.4594771.12496	&	12496	&	35	&	carbonic anhydrase	\\
-	&		&		&	Psychromonas ingrahamii 37	\\
-iowa-corn-3-pass.4596152.11816	&	11816	&	25	&	ribonuclease Z	\\
-	&		&		&	Thermococcus kodakarensis KOD1	\\
-iowa-corn-3-pass.4616349.11691	&	11691	&	25	&	precorrin-3B C17-methyltransferase	\\
-	&		&		&	Nitrosopumilus maritimus SCM1	\\
-iowa-corn-3-pass.4592007.10823	&	10823	&	22	&	hydroxymethylglutaryl-CoA reductase, degradative	\\
-	&		&		&	Staphylothermus marinus F1	\\
-iowa-corn-3-pass.4589906.10747	&	10747	&	23	&	RdgB/HAM1 family non-canonical purine NTP pyrophosphatase	\\
-	&		&		&	Roseiflexus castenholzii DSM 13941	\\
-iowa-corn-3-pass.4559414.9998&	9998	&	19	&	heparan N-sulfatase	\\
-	&		&		&	Blastopirellula marina DSM 3645	\\
-iowa-prairie-3-pass.6326293.1650	&	1650	&	11	&	PAS/PAC sensor signal transduction histidine kinase	\\
-	&		&		&	Marinobacter aquaeolei VT8	\\
-iowa-prairie-3-pass.6215171.1615*	&	1615	&	9	&	Beta-mannosidase (EC 3.2.1.25)	\\
-	&		&		&	Acidobacteria bacterium Ellin345	\\
-iowa-prairie-3-pass.6327344.1595	&	1595	&	12	&	glycosyl transferase, group 2 family protein	\\
-	&		&		&	Bacillus cereus ATCC 10987	\\
-iowa-prairie-3-pass.6326016.1586	&	1586	&	10	&	hypothetical protein	\\
-	&		&		&	Dechloromonas aromatica RCB	\\
-iowa-prairie-3-pass.6155396.1555	&	1555	&	9	&	peptidase S33, proline iminopeptidase 1	\\
-	&		&		&	Pseudomonas syringae pv. syringae B728a	\\
-iowa-prairie-3-pass.6285889.1505	&	1505	&	11	&	AMP-dependent synthetase and ligase	\\
-	&		&		&	Chloroflexus sp. Y-400-fl	\\
-iowa-prairie-3-pass.6293899.1502	&	1502	&	13	&	beta-lactamase	\\
-	&		&		&	Flavobacterium johnsoniae UW101	\\
-iowa-prairie-3-pass.5906709.1488	&	1488	&	7	&	peptidase M24	\\
-	&		&		&	Chitinophaga pinensis DSM 2588	\\
-iowa-prairie-3-pass.6216765.1484	&	1484	&	10	&	amine oxidase	\\
-	&		&		&	Candidatus Solibacter usitatus Ellin6076	\\
-iowa-prairie-3-pass.6224149.1479	&	1479	&	12	&	phosphoribosylglycinamide formyltransferase 	\\
-& & & Bacteroides sp. 2\_1\_16\\
-\hline
-\end{tabular}
 \label{tophits}
 \end{table}
 

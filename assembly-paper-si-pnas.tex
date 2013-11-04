@@ -23,7 +23,7 @@
 
 \begin{document}
 
-\title{SI:  Assembling large, complex environmental metagenomes}
+\title{SI: Tackling soil diversity with the assembly of large, complex metagenomes }
 
 \author{Adina Chuang Howe\affil{1}{Microbiology and Molecular Genetics, Michigan State
 University, East Lansing, MI, USA}\affil{2}{Plant, Soil, and Microbial Sciences,
@@ -42,7 +42,7 @@ of the United States of America}
 
 \begin{article}
 \section*{Supplementary Methods}
-\subsection*{Assembly Methods} The HMP mock community dataset and its available draft reference
+\subsection*{Assembly Methods.} The HMP mock community dataset and its available draft reference
 genomes were used to evaluate our approaches towards data reduction
 and partitioning for \emph{de novo} metagenomic assembly.  Reads of
 the mock community dataset were initially digitally normalized to a
@@ -64,11 +64,12 @@ and
 \url{http://nbviewer.ipython.org/urls/raw.github.com/ngs-docs/ngs-notebooks/
 master/ngs-71-hmp-diginorm.ipynb}. 
 
-\subsection*{Datasets}
+\subsection*{Datasets.}
 In this study, we examined two large soil metagenomes generated from
 soils collected from Iowa corn and native prairie soils.  Sequencing
-was performed at the DOE Joint Genome Institute (Walnut Creek, CA).
-Reads were quality trimmed at where Phred scores indicated a score of
+was performed at the DOE Joint Genome Institute (Walnut Creek, CA).  Soil metagenomes included both
+GAII and HiSeq Illumina paired-end libraries (76x2 and 114x2).  
+Reads were quality trimmed at basepair locations where Phred scores indicated a score of
 '2'.  The total quality-trimmed reads in the Iowa corn and prairie
 datasets were 1.8 million and 3.3 million, respectively.  We also
 include a human gut mock community dataset (combined from SRA
@@ -78,22 +79,22 @@ body was mixed together at staggered concentrations (over 5 orders of
 magnitude based on genomic DNA concentrations) and sequenced.  The
 mock community dataset originally contained 14.5 million reads.
 
-To evaluate our approaches, we added simulated reads from either a
+To evaluate our approach, we added simulated reads from either a
 single E. Coli (str. K-12 substr DH10B) or five E. coli strains (K-12
 substr DH10B, E24377, O147:H7 str. EC4115, UMN026, SE15) into select
 metagenomes.  We computationally generated 100 bp reads from each
 reference genome to a coverage of 10x and with a 2\% error rate and
 subsequently randomly shuffled these reads with select datasets.
 
-\subsection*{Estimation of assembly requirements for soil metagenomes}
+\subsection*{Estimation of assembly requirements for soil metagenomes.}
 Subsets of the Iowa corn metagenome were assembled with the Velvet
 assembler (v1.2.07) with the following parameters: velveth K=45,
 -short and velvetg -exp\_cov auto -cov\_cutoff auto, -scaffolding no.
 The time and memory for each assembly was estimated up to a maximum of
 150 hours and 100 GB.
 
-\subsection*{Digital normalization}
-Digital normalization was previously describe in \cite{browndiginorm}.  
+\subsection*{Digital normalization.}
+Digital normalization is described in \cite{browndiginorm}.  
 For the mock
 community dataset, digital normalization was performed with the
 following parameters: K=20, coverage=20, and Bloom filter size = 1 GB
@@ -102,17 +103,16 @@ as follows: K=20, coverage=20, and Bloom filter size = 48 GB x 4.
 Similar parameters were used for the Iowa prairie metagenome, with the
 exception that the Bloom filter size was 60 GB x 4.
 
-\subsection*{Removal of high abundance sequences}
-To eliminate known sequencing artifacts in Illumina metagenomes
-(previously described in Howe et al., in preparation), high abundance 
+\subsection*{Removal of high abundance sequences.}
+To eliminate known sequencing artifacts in Illumina metagenomes, high abundance 
 sequences (coverage
 greater than 50) were removed using the count-min-sketch datastructure
 used for digital normalization.  For the relatively high coverage mock
 community dataset, filtered reads were subsequently normalized to a
 coverage of 10 (K=20, bloom filter size = 1 GB x 4).
 
-\subsection*{Partitioning and \emph{de novo} assembly of disconnected reads}
-Normalized and filtered datasets were loaded into a probabilistic
+\subsection*{Partitioning and assembly of disconnected reads.}
+Normalized filtered datasets were loaded into a probabilistic
 representation of the assembly graph as described in \cite{Pell:2012cq}, and
 disconnected partitions of the resulting graph were separated.
 Partitions containing less than five reads were discarded.  Each
@@ -124,7 +124,7 @@ dereplicated with CD-HIT (\cite{Fu:2012jk}, 99\% similarity) and merged with
 Minimus2 \cite{Sommer:2007p1253}.
 
 
-\subsection*{Comparing coverage of reference genomes by reads}
+\subsection*{Comparing coverage of reference genomes by reads.}
 Reads in the HMP mock unfiltered and filtered datasets were mapped
 back to originating genomes using default settings in Bowtie2
 \cite{bowtie}.  For cases where reads could be mapped back to multiple
@@ -133,7 +133,7 @@ each read.  Sequencing coverage was estimated for the whole genome as
 the median base pair coverage for all base pairs in the reference
 genome.
 
-\subsection*{Read coverage by assemblies}
+\subsection*{Read coverage by assemblies.}
 All quality trimmed reads for Iowa corn and prairie were aligned with
 assembled contigs (length greater than 300 bp) using default
 parameters in Bowtie2 \cite{bowtie}.  Paired end reads were evaluated according to
@@ -149,22 +149,20 @@ calculated to estimate the presence of polymorphisms within the
 assembled contig.  
 
 Read coverage was also used to compare sequences without known annotations between the corn and prairie soil metagenomes.  Contigs shared with another metagenome were characterized by 
-having a minimum total of 10 bp median coverage among all available samples as well as present in all samples.  All identified shared contigs were also dereplicated with CD-HIT (99% similarity) and the best representative chosen.
+having a minimum total of 10 bp median coverage among all available samples as well as present in all samples.  All identified shared contigs were also dereplicated with CD-HIT (99\% similarity) and the best representative chosen.
 
-\subsection*{Annotation of assemblies}
+\subsection*{Annotation of assemblies.}
 Assembled contigs and their corresponding median bp coverage for the
 Iowa corn and prairie metagenomes were upload into MG-RAST annotation
 pipeline \cite{Meyer:2008db} and are available on MG-RAST as 4504979.3 (Iowa corn)
 and 4504798.3 (Iowa Prairie).  The resulting MG-RAST blat annotations
 were compared to the M5NR database using a maximum e-value of 1e-5, a
 minimum identity of 60\%, and a minimum alignment length of 15 aa unless otherwise noted.
-Both the phylogenetic distribution of bacteria (phyla) and functional
-distibution of subsystems were compared between the Iowa and corn
-metagenomes. The annotated metagenome for Iowa corn can be found at
+The annotated metagenome for Iowa corn can be found at
 \url{http://metagenomics.anl.gov/linkin.cgi?metagenome=4504797.3} and 
 Iowa prairie at \url{http://metagenomics.anl.gov/linkin.cgi?metagenome=4504798.3}.
   
-\subsection*{Comparing assemblies}
+\subsection*{Comparing assemblies.}
 Resulting assemblies (contigs greater than 300 bp) were compared using
 the total number of contigs, assembly length, and maximum contig size
 for each assembly.  Assemblies were also aligned to each other using
@@ -180,7 +178,7 @@ contigs (greater than 300 bp) from the unfiltered and filtered
 alignment (requiring E-value cutoff of 1e-5).  Contigs were associated
 with reference genomes through an identical alignment approach.
 
-\subsection(Statistical comparison of assemblies)
+\subsection*{Statistical comparison of assemblies.}
 The reference-based abundance (from reads mapped to reference genomes)
 and assembly-based abundance (from reads mapped to contigs) of genomes
 were compared.  Using a one-directional, paired t-test of squared
@@ -259,14 +257,14 @@ Meyer, F, Paarmann, D, D'Souza, M, Olson, R, Glass, E.~M, Kubal, M, Paczian, T,
 
 \begin{figure}
 \center{\includegraphics[width=.7\textwidth]{./figures/coverage1.eps}}
-\caption{Coverage of reference genomes by unfiltered and filtered
+\caption{Coverage of reference genomes (C < 25) by unfiltered and normalized filtered
   assembled contigs and unfiltered and filtered reads.}
 \label{coverage1}
 \end{figure}
 
 \begin{figure}
 \center{\includegraphics[width=.7\textwidth]{./figures/coverage2.eps}}
-\caption{Coverage of reference genomes by unfiltered and filtered
+\caption{Coverage of reference genomes (C > 25) by unfiltered and normalized filtered
   assembled contigs and unfiltered and filtered reads.}
 \label{coverage2}
 \end{figure}
@@ -275,7 +273,7 @@ Meyer, F, Paarmann, D, D'Souza, M, Olson, R, Glass, E.~M, Kubal, M, Paczian, T,
 \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/fig2-diginormhist.eps}}
 \caption{K-mer coverage of Iowa corn and prairie metagenomes before
-  and after filtering approaches.}
+  and after normalization and partitioning filtering approaches.}
 \label{diginormcoverage}
 \end{center}
 \end{figure}
@@ -359,7 +357,7 @@ Meyer, F, Paarmann, D, D'Souza, M, Olson, R, Glass, E.~M, Kubal, M, Paczian, T,
 
 
 \begin{table}
-\caption{Assembly comparisons of unfiltered (UF) and filtered (F) or
+\caption{Assembly comparisons of unfiltered (UF) and normalized filtered (NF) or
   filtered/partitioned (FP) HMP mock datasets using different
   assemblers (Velvet (V), MetaIDBA (M) and SOAPdenovo (S)).  Assembly
   content similarity is based on the fraction of alignment of
@@ -368,7 +366,7 @@ Meyer, F, Paarmann, D, D'Souza, M, Olson, R, Glass, E.~M, Kubal, M, Paczian, T,
 \begin{tabular}{@{\extracolsep{\fill}}lcccc}
 Assembly Comparison & Percent Similarity & RG Coverage & Assembler \\
 \hline
-UF vs. F & 95\% & 43.3\% / 44.5\% & V \\
+UF vs. NF & 95\% & 43.3\% / 44.5\% & V \\
 UF vs. FP & 95\% & 43.3\% / 44.4\% & V\\
 UF vs. FP & 93\% & 46.5\% / 45.4\% & M\\ 
 UF vs. FP & 98\% &  46.2\% / 46.4\% & S\\
@@ -382,9 +380,9 @@ UF vs. FP & 98\% &  46.2\% / 46.4\% & S\\
 \caption{HMP mock dataset reference genomes estimated sequencing depth
   (median bp coverage of reads), number of partitions, total length
   (bp), coverage of reference genomes by unfiltered reads (UF Cov),
-  coverage of reference genomes by filtered reads (F Cov), coverage of
+  coverage of reference genomes by normalized filtered reads (F Cov), coverage of
   reference genomes by unfiltered assembled contigs (UFA Cov), and
-  coverage of reference genomes by filtered assembled contigs (FA
+  coverage of reference genomes by normalized filtered assembled contigs (FA
   Cov).}
 \begin{tabular}{@{\extracolsep{\fill}}l c c c c c c c}
 \hline Reference Genome & Coverage & No. Partitions & Length (bp) & UF
