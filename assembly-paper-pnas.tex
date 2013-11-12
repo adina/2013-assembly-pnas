@@ -56,7 +56,7 @@ sequencing has begun to reveal the enormous diversity and heterogeneity
 associated within these systems, making them difficult to study {\em in situ}
 \cite{Hess:2011p686,Mackelprang:2011p1087,Qin:2010p189}. With ultradeep
 sequencing, we now have unprecedented access to even the rare species in these
-environments (i.e., ~50 Tbp required to adequately sample a gram of soil
+environments though with large volumes of sequencing (i.e., ~50 Tbp required to adequately sample a gram of soil
 \cite{Gans:2005p1365}).
 
 Alongside sequencing breakthroughs, new challenges to sequence analysis
@@ -119,14 +119,14 @@ assembly of the HGMC dataset by comparing unfiltered traditional assembly (Fig.
 \ref{flowchart}, Assembly I) to the assembly of reads remaining after digital
 normalization (Fig.~\ref{flowchart}, Assembly II). The
 abundance of genomes within the HGMC dataset (based on the reference genome
-coverage of sequence reads in the unfiltered dataset) ranged from 6-fold to
-2,000-fold coverage (Fig.~\ref{coverage1}, ~\ref{coverage2}, Table ~\ref{ref-summary}). The unfiltered, unassembled dataset
-encompassed a total of 93\% of the genomic content of the reference genomes.
+coverage of sequence reads in the unfiltered dataset) ranged from 4-fold to
+2,000-fold coverage (Table ~\ref{ref-summary}). The unfiltered, unassembled dataset
+encompassed a total of 93\% of the genomic content of the reference genomes (Fig. ~\ref{coverage1}).
 With digital normalization, reads were removed based on their coverage within
 the dataset (See Methods) and resulted in a total of 5.9 million reads (40\% of
 the total reads) from the original HGMC dataset (Table ~\ref{data-summary}). The
 remaining reads in the filtered HGMC dataset covered 91\% of the reference
-genomes (Table ~\ref{data-summary} and Fig. \ref{coverage1}, \ref{coverage2}).
+genomes (Fig. \ref{coverage1}).
 
 We next compared contigs assembled from the original and normalized HGMC datasets
 and their representation of the reference genomes. Using the Velvet assembler
@@ -150,7 +150,7 @@ the alignment of unassembled reads to either the reference genome or assembled
 contigs. Sequencing coverage was determined as the median base pair coverage of
 all aligned reads. For assembled contigs with coverage greater than 5, the
 majority of reads which could be aligned to contigs were also mapped to reference
-genomes (Fig.\ref{coverage1}, \ref{coverage2}). Below this threshold, reads were mapped to reference
+genomes (Fig.\ref{coveragehmp}). Below this threshold, reads were mapped to reference
 genomes but were less likely to be associated with assembled contigs. Comparing
 the unfiltered and filtered assemblies, the estimated abundance of the HGMC
 genomes from the filtered assembly were significantly closer to predicted
@@ -229,7 +229,7 @@ remove as many reads in the soil metagenomes as in the mock data set (Table
 ~\ref{data-summary}).
 
 Based on the HGMC dataset, we estimated that above a sequencing depth of five,
-the large majority of sequences could be assembled into contigs greater than or
+the large majority of sequences that could be aligned to reference genomes are also assembled into contigs greater than or
 equal to 300 bp (Fig.~\ref{coveragehmp}). Given the greater diversity expected in
 the soil metagenomes, we normalized these datasets to a sequencing depth of 20
 (i.e., discarding redundant reads within dataset above this coverage). After
@@ -268,7 +268,7 @@ polymorphism rate.
 We annotated assembled contigs (greater than 300 bp) through the MG-RAST
 pipeline. This annotation resulted in 2,089,779 and 3,460,496 predicted protein
 coding regions in the corn and prairie metagenomes, respectively. The large
-majority of these regions, 61.8\% in corn and 70.0\% in prairie, did not share similarity with any gene in the MG-RAST
+majority of these regions, 61.8\% in corn and 70.0\% in prairie, were less than 60% similar (over a minimum length of 15 aa) with any gene in the MG-RAST
 database M5NR (release 52). In total,
 613,213 (29.3\%) and 777,454 (22.5\%) protein coding regions were assigned to an
 existing function. Many contigs were greater than 1 kbp, including 85,581 (max.
@@ -287,7 +287,7 @@ unique KO identifiers (2,069 shared between corn and prairie metagenomes, 206 in
 corn alone, and 1,080 in prairie alone) were identified and found to represent
 broad metabolic functions (Fig.~\ref{kegg} and Fig.~\ref{kegg-dist}) involved in
 metabolism, genetic and environmental information processing, and cellular
-processes. Notably, annotation of unassembled metagenomic reads from the same
+processes. Notably, annotation of 2.6 billion unassembled metagenomic reads from the same
 datasets did not result in any matches to the KEGG datatabase. 
 
 %(REMOVE LATER:  This is so far true for at least half of the lanes but still in progress of annotating them).
@@ -392,18 +392,18 @@ million bp and 1.5 billion bp, respectively -- equivalent to $\approx$ 500
 raw sequencing data, evidenced by evalution of paired-end concordance (Table
 ~\ref{read-map}).
 
-Though the overall abundance of assembled soil contigs was low (~\ref{soilassemblycoverage}) due to 
+Though the overall abundance of assembled soil contigs was low (Fig. ~\ref{soilassemblycoverage}) due to 
 the high diversity in these soils, these assemblies offer a number of advantages for metagenomic
 analysis. Firstly, the assembly resulted in significant data compression,
-reducing the volume of our data (including sequencing errors) from 397 Gbp (unassembled)
-to 2.4 Gbp (assembled) and allowing for more efficient and effective annotation
-and analysis of the resulting sequences. Further, the length of the assembled sequences
+reducing the volume of our data to be annotated (including sequencing errors) from 397 Gbp (unassembled)
+to 2.4 Gbp (assembled) and consequently allowing for more efficient and effective annotation
+and analysis of the resulting sequences which could be assembled. Further, the length of the assembled sequences
 is significantly greater than their unassembled counterparts.  
 Over 97,000 contigs were longer than 1000 
 bp, allowing for the possible identification of multiple genes and operon structure.
 Notably, nine sequences were assembled into contigs greater than 10 kbp (corn
 metagenome), and the most abundant sequences (17,507 bp and 16,126 bp) were
-related to sequences of phage origin ({\em Pseudomonas} phage PaP2, Table ~\ref{tophits}).
+related to sequences of phage origin ({\em Pseudomonas} phage PaP2, Table ~\ref{mgrast}).
 
 Unlike the unassembled metagenome sequences, the longer lengths of assembled
 sequences allowed for the identification of metabolic pathways within the framework of 
@@ -414,7 +414,7 @@ relative to that of the corn, especially involved in cellular processes (e.g.,
 cell growth and death and transport and catabolism) and genetic information
 processing (e.g., folding, sorting, and degradation; translation; and
 transcription) (Fig.~\ref{kegg-dist}). This result may reflect the varying management
-history of these two soils. Unlike the prairie soils which have not been grazed
+history of these two soils. Unlike the prairie soils which have not been tilled
 for the past 35 years, the corn soils have been cultivated and have had annual additions of animal manure
 that could potentially enrich for specific metabolic pathways with decreased
 diversity.
@@ -452,7 +452,7 @@ provide the critical referenceswhich will enable future investigations of soils
 and other complex environments. \begin{materials} Assemblies of the HGMC and
 soil metagenomes using various software were peformed on (1) quality-filtered
 unassembled and (2) the same sequences filtered by digital normalization
-(coverage threshold (C) = 20 bp, removal of high coverage sequences (C > 50), and partitioning disconnected sets
+(coverage threshold (C) = 20, removal of high coverage sequences (C > 50), and partitioning disconnected sets
 of reads. Coverage of assembled sequences or reference genomes was estimated
 through consensus alignment of raw sequences, and assembled contigs were
 compared to one another or reference genomes through blastn alignment (refer to
@@ -656,12 +656,6 @@ of the United States of America} {\bf 101}, 3160--3165.
 \end{thebibliography} \end{article}
 
 \begin{figure} \begin{center}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/fig1-hmpassemblyhist.eps}}
-\caption{K-mer coverage of HMP mock community dataset before and after filtering
-approaches.} \label{kmercoverage} \end{center} \end{figure}
-
-
-\begin{figure} \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/fig3-coverage.eps}}
 \caption{Coverage (median basepair recovered) distribution of assembled contigs
 from Iowa corn soil (top) and Iowa prairie soil (bottom) metagenomes.}
@@ -695,27 +689,34 @@ Iowa Prairie & 258 / 178 & 287 / 310 \cr \hline \end{tabular}
 
 
 \begin{table} \caption{Assembly summary statistics (total contigs, total million
-bp assembly length, maximum contig size bp) of unfiltered (UF) and normalized filtered (NF)
-or partitioned (P) datasets with Velvet (V) assembler. Assembly for UF
+bp assembly length, maximum contig size bp) of unfiltered, normalized filtered, 
+or partitioned datasets with Velvet (V) assembler. Assembly for UF
 and P datasets also shown for MetaIDBA (M) and SOAPdenovo(S) assemblers. Assemblies of Iowa
-corn and prairie metagenomes could not be completed on unfiltered datasets.}
-\begin{tabular} {@{\extracolsep{\fill}}lcccc}
+corn and prairie metagenomes could not be completed on unfiltered or normalized-only datasets.}
+\begin{tabular} {@{\extracolsep{\fill}}lccccccccccc}
 \hline
- & UF & NF & P & Assembler
-\cr \hline HMP Mock & 29,063 / 38 / 146,795 & 30,082 / 35 / 90,497 & 30,115 / 35
-/ 90,497 & V \cr HMP Mock & 24,300 / 36 / 86,445 & - & 27,475 / 36 / 96,041 & M
-\cr HMP Mock & 36,689 / 37 / 32,736 & - & 29,295 / 37 / 58,598 & S \cr Iowa corn
-& N/A & N/A & 1,862,962 / 912/ 20,234 & V \cr Iowa corn & N/A & N/A & 1,334,841
-/ 623 / 15,013 & M \cr Iowa corn & N/A & N/A & 1,542,436 / 675 / 15,075 & S \cr
-Iowa prairie & N/A & N/A & 3,120,263 / 1,510 / 9,397 & V \cr Iowa prairie & N/A
-& N/A & 2,102,163 / 998 / 7,206 & M \cr Iowa prairie & N/A & N/A & 2,599,767 /
-1,145 / 5,423 & S \cr \hline \end{tabular} \label{assembly-summary} \end{table}
+ & & Unfiltered & & & Normalized filtered & & & Partitioned & & Assembler \cr 
+& \# Contigs & Length & Max. Contig & \# Contigs & Length & Max. Contig& \# Contigs & Length & Max. Contig \cr
+\hline
+HMP Mock & 29,063 & 38 & 146,795 & 30,082 & 35 & 90,497 & 30,115 & 35 & 90,497 & V \cr 
+HMP Mock & 24,300 & 36 & 86,445 & - &-&-& 27,475 & 36 & 96,041 & M\cr 
+HMP Mock & 36,689 & 37 & 32,736 & -&-&- & 29,295 & 37 & 58,598 & S \cr 
+Iowa corn& - &-&-& -&-&- & 1,862,962 & 912& 20,234 & V \cr 
+Iowa corn &- &- &- & -&-&- & 1,334,841 & 623 & 15,013 & M \cr 
+Iowa corn & - &-&-& -&-&-& 1,542,436 & 675 & 15,075 & S \cr
+Iowa prairie & - &-&-& -&-&- & 3,120,263 & 1,510 & 9,397 & V \cr 
+Iowa prairie & - &-&-& -&-&- & 2,102,163 & 998 & 7,206 & M \cr 
+Iowa prairie & -&-&- & -&-&- & 2,599,767 &1,145 & 5,423 & S \cr 
+\hline 
+\end{tabular} 
+\label{assembly-summary} 
+\end{table}
+
 
 \begin{table} \caption{Unassembled reads (single-end (SE) and paired-end (PE)) mapped to Iowa corn and prairie Velvet assemblies.}
 \begin{tabular}{@{\extracolsep{\fill}}lcc} 
 \hline
-& Iowa Corn Assembly & Iowa Prairie
-Assemby \cr \hline Total Unfiltered Reads & 1,810,630,781 & 3,303,375,485\cr
+& Iowa Corn Assembly & Iowa Prairie Assemby \cr \hline Total Unfiltered Reads & 1,810,630,781 & 3,303,375,485\cr
 Total Unfiltered SE Reads & 141,517,075 & 358,817,057\cr SE aligned 1 time &
 11,368,837 & 32,539,726\cr SE aligned $>$ 1 time & 562,637 & 1,437,284\cr \% SE
 Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
@@ -732,34 +733,6 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 \renewcommand{\thefigure}{S\arabic{figure}}
 
 \begin{figure}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/new_flowchart.eps}}
-\caption{Unfiltered and filtered (by coverage) datasets and assemblies compared in this study.}
-\label{flowchart}
-\end{figure}
-
-\begin{figure}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/coverage.eps}}
-\caption{Number of basepairs with specified coverage for reads which
-  map to reference genomes and unfiltered and filtered assembled
-  contigs greater than 300 bp.}
-\label{coveragehmp}
-\end{figure}
-
-\begin{figure}
-\center{\includegraphics[width=.7\textwidth]{./figures/coverage1.eps}}
-\caption{Coverage of reference genomes (C < 25) by unfiltered and normalized filtered
-  assembled contigs and unfiltered and filtered reads.}
-\label{coverage1}
-\end{figure}
-
-\begin{figure}
-\center{\includegraphics[width=.7\textwidth]{./figures/coverage2.eps}}
-\caption{Coverage of reference genomes (C > 25) by unfiltered and normalized filtered
-  assembled contigs and unfiltered and filtered reads.}
-\label{coverage2}
-\end{figure}
-
-\begin{figure}
 \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/fig2-diginormhist.eps}}
 \caption{K-mer coverage of Iowa corn and prairie metagenomes before
@@ -770,9 +743,32 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 
 
 \begin{figure}
+\centerline{\includegraphics[width=.7\textwidth]{./figures/new_flowchart.eps}}
+\caption{Unfiltered and filtered (by coverage) datasets and assemblies compared in this study.}
+\label{flowchart}
+\end{figure}
+
+\begin{figure}
+\centerline{\includegraphics[width=.7\textwidth]{./figures/coverage.eps}}
+\caption{For the HGMC datatset, the number of basepairs with specified coverage for reads which
+  map to reference genomes and unfiltered and filtered assembled
+  contigs greater than 300 bp.}
+\label{coveragehmp}
+\end{figure}
+
+\begin{figure}
+\center{\includegraphics[width=.7\textwidth]{./figures/reference_coverage.eps}}
+\caption{Coverage of reference genomes (estimated actual coverage shown in parentheses) by sequences in unfiltered and normalized filtered unassembled reads and assembled contigs.}
+\label{coverage1}
+\end{figure}
+
+
+
+
+\begin{figure}
 \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/corn-cov-len-500.eps}}
-\caption{Length distribution of longest assembled corn metagenome sequences with and without similarity to known sequences.  Coverage (log-scale) of these sequences is also shown by the size of marker. }
+\caption{Length distribution of longest assembled corn metagenome contigs with and without similarity to known sequences.  Unknown contigs were defined as sequences with no annotated gene regions.  Coverage (log-scale) of these sequences is also shown by the size of marker. }
 \label{cornlength}
 \end{center}
 \end{figure}
@@ -939,7 +935,7 @@ iowa-prairie-3-pass.6224149.1479	&	1479	&	12	&	phosphoribosylglycinamide formylt
 & & & Bacteroides sp. 2\_1\_16\\
 \hline
 \end{tabular}
-\label{read-map}
+\label{mgrast}
 \end{table}
 
 
