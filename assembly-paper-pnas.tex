@@ -36,11 +36,12 @@ to sample complex environments deeply pose new challenges to sequence analysis
 approaches. De novo metagenomic assembly effectively reduces the total amount of
 data to be analyzed but requires significant computational resources. We apply
 two pre-assembly filtering approaches, digital normalization and partitioning,
-to make large metagenome assemblies more computationally tractable. Using a
+to assemble previously untractable large metagenome assemblies. Using a
 human gut mock community dataset, we demonstrate that these methods result in
 assemblies nearly identical to assemblies from unprocessed data. We then
-assemble two large soil metagenomes from matched Iowa corn and native prairie
-soils and investigate the functional potential of these soils.  The
+assemble two large soil metagenomes totalling 398 billion bp (equivalent to 88,000 E. Coli genomes) 
+from matched Iowa corn and native prairie
+soils.  Unlike their unassembled counterparts, the resulting assembled contigs could be used to identify molecular interactions and reaction networks of known metabolic pathways (KEGG).  Furthermore, greater than 60\% of predicted proteins in assemblies could not be annotated against known databases. Many of these unknown proteins were identified abundantly in both corn and prairie soils, highlighting the benefits of assembly for the discovery and characterization of novelty in soil biodiversity.   The
 assembly strategies presented are generic and can be extended to any metagenome
 and any assembler; full source code is freely available under a BSD license.
 \end{abstract}
@@ -268,7 +269,7 @@ polymorphism rate.
 We annotated assembled contigs (greater than 300 bp) through the MG-RAST
 pipeline. This annotation resulted in 2,089,779 and 3,460,496 predicted protein
 coding regions in the corn and prairie metagenomes, respectively. The large
-majority of these regions, 61.8\% in corn and 70.0\% in prairie, were less than 60% similar (over a minimum length of 15 aa) with any gene in the MG-RAST
+majority of these regions, 61.8\% in corn and 70.0\% in prairie, were less than 60\% similar (over a minimum length of 15 aa) with any gene in the MG-RAST
 database M5NR (release 52). In total,
 613,213 (29.3\%) and 777,454 (22.5\%) protein coding regions were assigned to an
 existing function. Many contigs were greater than 1 kbp, including 85,581 (max.
