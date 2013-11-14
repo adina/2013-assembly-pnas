@@ -39,7 +39,7 @@ two pre-assembly filtering approaches, digital normalization and partitioning,
 to assemble previously untractable large metagenome assemblies. Using a
 human gut mock community dataset, we demonstrate that these methods result in
 assemblies nearly identical to assemblies from unprocessed data. We then
-assemble two large soil metagenomes totalling 398 billion bp (equivalent to 88,000 E. Coli genomes) 
+assemble two large soil metagenomes totalling 398 billion bp (equivalent to 88,000 {\em E. coli} genomes) 
 from matched Iowa corn and native prairie
 soils.  Unlike their unassembled counterparts, the resulting assembled contigs could be used to identify molecular interactions and reaction networks of known metabolic pathways (KEGG).  Furthermore, greater than 60\% of predicted proteins in assemblies could not be annotated against known databases. Many of these unknown proteins were identified abundantly in both corn and prairie soils, highlighting the benefits of assembly for the discovery and characterization of novelty in soil biodiversity.   The
 assembly strategies presented are generic and can be extended to any metagenome
@@ -95,12 +95,12 @@ assembly, they cannot work with the volume of reads necessary to achieve high
 coverage for extremely diverse environmental metagenomes
 \cite{metaray, Scholz:2012p1372}.
 
-Here, we present two pre-assembly read filtering strategies, digital
+Here, we apply two pre-assembly read filtering strategies, digital
 normalization and partitioning, that provide a general strategy for scaling and
 improving metagenome assembly. Digital normalization normalizes sequence
 coverage and reduces the dataset size by setting aside reads from high-coverage
-regions. Subsequently, partitioning separates reads based
-on transitive connectivity, resulting in easily assembled subsets of reads. 
+regions \cite{browndiginorm}. Subsequently, partitioning separates reads based
+on transitive connectivity, resulting in easily assembled subsets of reads \cite{Pell:2012cq}. 
 We evaluate these approaches by applying them
 to a human gut mock community (HGMC) dataset and find that these filtering
 methods result in assemblies nearly identical to assemblies from the unprocessed
