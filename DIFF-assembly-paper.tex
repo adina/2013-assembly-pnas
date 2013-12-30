@@ -14,6 +14,26 @@
 %% OPTIONAL MACRO DEFINITIONS 
 \def\s{\sigma} 
 \usepackage{url}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
 \begin{document}
 
 \title{Tackling soil diversity with the assembly of large, complex metagenomes}
@@ -66,17 +86,25 @@ sequencing has begun to reveal the enormous diversity and heterogeneity
 associated within these systems, making them difficult to study {\em in situ}
 \cite{Hess:2011p686,Mackelprang:2011p1087,Qin:2010p189}. With ultradeep
 sequencing, we now have unprecedented access to even the rare species in these
-environments.  In complex environments like the soil (where an estimated 50 Tbp is required to adequately sample a gram \cite{Gans:2005p1365}), converting these large volumes of sequencing data to biologically useful information remains a major challenge.  
+environments\DIFdelbegin \DIFdel{though with large volumes of sequencing (i.  e., ~}\DIFdelend \DIFaddbegin \DIFadd{.  In complex environments like the soil (where an estimated }\DIFaddend 50 Tbp \DIFaddbegin \DIFadd{is }\DIFaddend required to adequately sample a gram \DIFdelbegin \DIFdel{of soil
+}\DIFdelend \cite{Gans:2005p1365})\DIFdelbegin \DIFdel{.
+}\DIFdelend \DIFaddbegin \DIFadd{, converting these large volumes of sequencing data to biologically useful information remains a major challenge.  
+}\DIFaddend 
 
-As sequencing dataset sizes are growing at an exponential
-rate, significant computational resources for data storage and
-analysis are required. A single metagenomic project can readily generate as much or more data
+\DIFdelbegin \DIFdel{Alongside sequencing breakthroughs, new challenges to sequence analysis
+approaches have emerged.  
+Sequencing }\DIFdelend \DIFaddbegin \DIFadd{As sequencing }\DIFaddend dataset sizes are growing at an exponential
+rate, \DIFdelbegin \DIFdel{requiring }\DIFdelend significant computational resources for data storage and
+analysis \DIFaddbegin \DIFadd{are required}\DIFaddend . A single metagenomic project can readily generate as much or more data
 than is in global reference databases; for example, a human-gut metagenome sample
-containing 578 Gbp (ERA000116, \cite{Qin:2010p189}) produced more than double the data in NCBI
-RefSeq (Release 56).  In its simplest form, this data (millions to billions of short reads) contain only minimal signal for
+containing 578 Gbp \DIFaddbegin \DIFadd{(ERA000116, }\DIFaddend \cite{Qin:2010p189}\DIFaddbegin \DIFadd{) }\DIFaddend produced more than double the data in NCBI
+RefSeq (Release 56).  \DIFdelbegin \DIFdel{Moreover, short reads }\DIFdelend \DIFaddbegin \DIFadd{In its simplest form, this data (millions to billions of short reads) }\DIFaddend contain only minimal signal for
 homology searches and are error-prone, limiting direct annotation approaches
-against reference databases \cite{Wommack:rlm}.  In systems where very little of the microbial diversity has been characterized, 
-these annotation approaches are further limited by the lack of relevant references, where greater than half of identified genes share little or no similarity to experimentally studied genes \cite{Arumugam:2011p735,Qin:2010p189}.  
+against reference databases.  \DIFdelbegin \DIFdel{And finally, 
+the majority of genes sequenced from
+complex metagenomes typically contain }\DIFdelend \DIFaddbegin \DIFadd{In systems where very little of the microbial diversity has been characterized, 
+these annotation approaches are further limited by the lack of relevant references, where greater than half of identified genes share }\DIFaddend little or no similarity to experimentally studied genes \DIFdelbegin \DIFdel{, further complicating homology analysis
+}\DIFdelend \cite{Arumugam:2011p735,Qin:2010p189}.  
 
 Consequently, investigators of metagenomic datasets are confounded by
 overwhelming volumes of data for which they do not have the computational resources
@@ -102,31 +130,43 @@ coverage for extremely diverse environmental metagenomes
 
 Here, we apply two pre-assembly read filtering strategies, digital
 normalization and partitioning, that provide a general strategy for scaling and
-improving metagenome assembly for large, complex datasets (e.g. billions of reads). 
-Digital normalization normalizes sequence 
+improving metagenome assembly \DIFdelbegin \DIFdel{. }\DIFdelend \DIFaddbegin \DIFadd{for large, complex datasets (e.g. billions of reads). 
+}\DIFaddend Digital normalization normalizes sequence 
 coverage and reduces the dataset size by setting aside reads from high-coverage
 regions \cite{browndiginorm}. Subsequently, partitioning separates reads based
 on transitive connectivity, resulting in easily assembled subsets of reads \cite{Pell:2012cq}. 
-As this effort is the first to apply these approaches to complex metagenomes and the true content of environmental metagenomes is unknown, 
-we first evaluated this strategy on a human gut mock community (HGMC) dataset containing 21 known genomes and found that our 
-methods resulted in assemblies nearly identical to assemblies from the unprocessed HGMC
-dataset.  Moreover, we show that partitioning separates most reads into
+\DIFdelbegin \DIFdel{We evaluate these approaches by applying them
+to }\DIFdelend \DIFaddbegin \DIFadd{As this effort is the first to apply these approaches to complex metagenomes and the true content of environmental metagenomes is unknown, 
+we first evaluated this strategy on }\DIFaddend a human gut mock community (HGMC) dataset \DIFdelbegin \DIFdel{and find that these filtering
+methods result }\DIFdelend \DIFaddbegin \DIFadd{containing 21 known genomes and found that our 
+methods resulted }\DIFaddend in assemblies nearly identical to assemblies from the unprocessed \DIFaddbegin \DIFadd{HGMC
+}\DIFaddend dataset.  Moreover, we show that partitioning separates most reads into
 species-level bins, providing an alternative to abundance-based and k-mer
-approaches to species clustering.  We next use these approaches for the assembly of previously intractable
-metagenomes from two matched soils, 100-year cultivated Iowa agricultural corn soil
-and native Iowa prairie.  We used the resulting assemblies to evaluate our ability to both sample and characterize relatively small, localized soil cores and their associated functional diversity.
+approaches to species clustering.  \DIFdelbegin %DIFDELCMD < 
 
-\section*{Results} \subsection*{Normalization results in similar assemblies without minimal loss of information.} To evaluate our approaches, we first evaluated the recovery of reference genomes from {\em de novo} metagenomic
+%DIFDELCMD < %%%
+\DIFdel{We next apply these approaches to }\DIFdelend \DIFaddbegin \DIFadd{We next use these approaches for }\DIFaddend the assembly of previously intractable
+metagenomes from two matched soils, 100-year cultivated Iowa agricultural corn soil
+and native Iowa prairie.  We \DIFdelbegin \DIFdel{compare the predicted functional capacities of the
+assembled contigs and conclude that assembled sequences provide significant
+advantages towards understanding the functional diversityof soil}\DIFdelend \DIFaddbegin \DIFadd{used the resulting assemblies to evaluate our ability to both sample and characterize relatively small, localized soil cores and their associated functional diversity}\DIFaddend .
+
+\section*{Results} \subsection*{\DIFdelbegin \DIFdel{Data reduction }\DIFdelend \DIFaddbegin \DIFadd{Normalization }\DIFaddend results in similar assemblies \DIFaddbegin \DIFadd{without minimal loss of information}\DIFaddend .} \DIFdelbegin \DIFdel{We
+}\DIFdelend \DIFaddbegin \DIFadd{To evaluate our approaches, we first }\DIFaddend evaluated the recovery of reference genomes from {\em de novo} metagenomic
 assembly of the HGMC dataset by comparing unfiltered traditional assembly (Fig.
 \ref{flowchart}, Assembly I) to the assembly of reads remaining after digital
-normalization (Fig.~\ref{flowchart}, Assembly II). The HGMC dataset contains mixed DNA from isolates at varying abundances ranging from 4-fold to
-2,000-fold sequencing coverage (Table ~\ref{ref-summary}).  After sequencing, this mock metagenome (unassembled) encompassed a total of 93\% of the genomic content of the reference genomes (Fig. ~\ref{coverage1}).
-After digital normalization, reads were removed based on their coverage within
-the dataset (See Methods), resulting in a total of 5.9 million reads (40\% of
-the total reads) from the original HGMC dataset (Table ~\ref{data-summary}) with coverage of 91\% of the reference
+normalization (Fig.~\ref{flowchart}, Assembly II). The \DIFdelbegin \DIFdel{abundance of genomes within the HGMC dataset (based on the reference genome
+coverage of sequence reads in the unfiltered dataset) ranged from }\DIFdelend \DIFaddbegin \DIFadd{HGMC dataset contains mixed DNA from isolates at varying abundances ranging from }\DIFaddend 4-fold to
+2,000-fold \DIFaddbegin \DIFadd{sequencing }\DIFaddend coverage (Table ~\ref{ref-summary}).  \DIFdelbegin \DIFdel{The unfiltered, unassembled dataset
+}\DIFdelend \DIFaddbegin \DIFadd{After sequencing, this mock metagenome (unassembled) }\DIFaddend encompassed a total of 93\% of the genomic content of the reference genomes (Fig. ~\ref{coverage1}).
+\DIFdelbegin \DIFdel{With }\DIFdelend \DIFaddbegin \DIFadd{After }\DIFaddend digital normalization, reads were removed based on their coverage within
+the dataset (See Methods)\DIFdelbegin \DIFdel{and resulted }\DIFdelend \DIFaddbegin \DIFadd{, resulting }\DIFaddend in a total of 5.9 million reads (40\% of
+the total reads) from the original HGMC dataset (Table ~\ref{data-summary}) \DIFdelbegin \DIFdel{. The
+remaining reads in the filtered HGMC dataset covered }\DIFdelend \DIFaddbegin \DIFadd{with coverage of }\DIFaddend 91\% of the reference
 genomes (Fig. \ref{coverage1}).
 
-To investigate differences resulting from the assembly of mixed genomes of variable abundance, we compared our assembly of filtered HGMC reads (normalized) to the assembly of all original reads.  We evaluated the recovery of reference genomes and the length distribution of assembled contigs for each reference.  Using the Velvet assembler
+\DIFdelbegin \DIFdel{We next compared contigs assembled from the original and normalized HGMC datasets
+and their representation of the reference genomes}\DIFdelend \DIFaddbegin \DIFadd{To investigate differences resulting from the assembly of mixed genomes of variable abundance, we compared our assembly of filtered HGMC reads (normalized) to the assembly of all original reads.  We evaluated the recovery of reference genomes and the length distribution of assembled contigs for each reference}\DIFaddend .  Using the Velvet assembler
 \cite{Zerbino:2008p665}, we recovered 43\% and 44\% of the reference genomes in
 the original and filtered assemblies, respectively. The assembly of the original
 dataset contained 29,063 contigs and 38 million bp, while the filtered assembly
@@ -134,14 +174,22 @@ contained 30,082 contigs and 35 million bp (Table ~\ref{assembly-summary}).
 Comparable recoveries of references between original and filtered datasets were
 also obtained with other assemblers (SOAPdenovo \cite{Li:2010jz} and Meta-IDBA
 \cite{Peng:2011p898}). Overall, the unfiltered and filtered assemblies were very
-similar, sharing 95\% of genomic content (Table ~\ref{assembly-compare}) and the distribution
+similar, sharing 95\% of genomic content (Table ~\ref{assembly-compare}) \DIFdelbegin \DIFdel{. In the
+most abundant referencegenomes
+(}\DIFdelend \DIFaddbegin \DIFadd{and the distribution
 of contig lengths in unfiltered and filtered assemblies were also comparable. For the
-large majority of genomes, the filtered assembly recovered similar fractions of each reference.  In genomes with lower coverage, such as NC\_003112.2 and NC\_006085.1, improved assemblies from normalization were observed (Table ~\ref{assembly-summary}).  In genomes with high sequencing coverage, such as the plasmids  NC\_005008.1, NC\_005007.1, and NC\_005003.1, the unfiltered assembly recovered significantly more of the original sequence.   
+large majority of genomes, the filtered assembly recovered similar fractions of each reference.  In genomes with lower coverage, such as NC}\\\DIFadd{SUBSCRIPTNB}{\DIFadd{0}}\DIFadd{03112.2 and NC}\\\DIFadd{SUBSCRIPTNB}{\DIFadd{0}}\DIFadd{06085.1, improved assemblies from normalization were observed.  In genomes with high sequening coverage, such as }\DIFaddend the plasmids  NC\_005008.1, NC\_005007.1, and NC\_005003.1\DIFdelbegin \DIFdel{)}\DIFdelend , the unfiltered assembly recovered significantly more of the original sequence\DIFdelbegin \DIFdel{; however, for the
+large majority of genomes, the filtered assembly recovered similar (and sometimes
+greater) amounts of the reference genomes (Fig.   
+\ref{coverage1}). The distribution
+of contig lengths in unfiltered and filtered assemblies were also comparable.
+}\DIFdelend \DIFaddbegin \DIFadd{.   
+}\DIFaddend 
 
-To understanding the representation of genes and genomes in the metagenome, we evaluated our ability to estimate genome abudance in the HGMC mock metagenome and both unfiltered and filtered assemblies. Abundance was estimated through
-the alignment of unassembled reads to both the known reference genomes or assembled
-contigs (experimentally hypothesized references). Sequencing coverage was determined as the median base pair coverage of
-all aligned reads. For assembled contigs with a coverage greater than 5, the
+\DIFdelbegin \DIFdel{We further compared the estimated abundance of genomes in the HGMC dataset }\DIFdelend \DIFaddbegin \DIFadd{Understanding the representation of genes and genomes in environments are important so we evaluated our ability to estimate genome abudance in the HGMC mock metagenome }\DIFaddend and both unfiltered and filtered assemblies. \DIFdelbegin \DIFdel{Genome abundance }\DIFdelend \DIFaddbegin \DIFadd{Abundance }\DIFaddend was estimated through
+the alignment of unassembled reads to \DIFdelbegin \DIFdel{either the reference genome }\DIFdelend \DIFaddbegin \DIFadd{both the known reference genomes }\DIFaddend or assembled
+contigs \DIFaddbegin \DIFadd{(experimentally hypothesized references)}\DIFaddend . Sequencing coverage was determined as the median base pair coverage of
+all aligned reads. For assembled contigs with \DIFaddbegin \DIFadd{a }\DIFaddend coverage greater than 5, the
 majority of reads which could be aligned to contigs were also mapped to reference
 genomes (Fig.\ref{coveragehmp}). Below this threshold, reads were mapped to reference
 genomes but were less likely to be associated with assembled contigs. Comparing
@@ -150,14 +198,14 @@ genomes from the filtered assembly were significantly closer to predicted
 abundances from reference genomes (\emph{n} = 28,652; p-value = 0.032, see SI
 Methods).
 
-\subsection*{Partitioning separates most reads by species.}  To subdivide large metagenomic datasets, we next partitioned
-the normalized data set based on De Bruijn graph connectivity.  This approach should separate disconnected sequences from distinct species and allow for the assembly of each partition independently (Fig.\ref{flowchart}, Assembly III).  Notably, conserved regions shared by multiple genomes (e.g. 16S rRNA genes) may be connected within a single partition, and we examined these partitions through the HGMC dataset.  Overall, it was partitioned into 85,818 disconnected partitions containing a total of 9
+\subsection*{Partitioning separates most reads by species.}  \DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{To subdivide large metagenomic datasets, we }\DIFaddend next partitioned
+the normalized data set based on De Bruijn graph connectivity\DIFdelbegin \DIFdel{and assembled }\DIFdelend \DIFaddbegin \DIFadd{.  This approach should separate disconnected sequences from distinct species and allow for the assembly of }\DIFaddend each partition independently (Fig.\ref{flowchart}, Assembly III).  \DIFdelbegin \DIFdel{The HGMC dataset}\DIFdelend \DIFaddbegin \DIFadd{Notably, conserved regions shared by multiple genomes (e.g. 16S rRNA genes) may be connected within a single partition, and we examined these partitions through the HGMC dataset.  Overall, it }\DIFaddend was partitioned into 85,818 disconnected partitions containing a total of 9
 million reads. Among these, only 2,359 (2.7\%) of the partitions contained reads
 originating from more than one genome, indicating that partitioning separated
-the large majority of reads from distinct species.  Partitioning had minimal effects on the assembly of a mock metagenome; the HGMC assemblies of the unpartitioned and
+\DIFaddbegin \DIFadd{the large majority of }\DIFaddend reads from distinct species.  \DIFdelbegin \DIFdel{The resulting }\DIFdelend \DIFaddbegin \DIFadd{Partitioning had minimal effects on the assembly of a mock metagenome; the HGMC }\DIFaddend assemblies of the unpartitioned and
 partitioned dataset were very similar, sharing 99\% identical genomic content.
 
-The number of partitions in the mock metagenome depends largely on the sequencing coverage of its content. In general, reference genomes with high sequence coverage were associated with
+\DIFaddbegin \DIFadd{The number of partitions in the mock metagenome depends largely on the sequencing coverage of its content. }\DIFaddend In general, reference genomes with high sequence coverage were associated with
 fewer partitions; a total of 112 partitions contained reads from
 high abundance reference genomes (coverage above 25) compared to 2,771
 partitions associated with lower abundance genomes (coverage below 25). This is
@@ -165,17 +213,17 @@ consistent with previous observations where low coverage in sequences cause
 ``breaks'' in connectivity within the assembly graph
 \cite{Chaisson:2008p1373,Pevzner:2001p1374}.
 
-To further evaluate partitioning and its separation of species, we introduced spiked, simulated
-reads from several \emph{E. coli} genomes into the HGMC dataset. First, simulated reads
+To further evaluate \DIFdelbegin \DIFdel{the effects of partitioning }\DIFdelend \DIFaddbegin \DIFadd{partitioning and its separation of species}\DIFaddend , we introduced spiked, simulated
+reads from \DIFaddbegin \DIFadd{several }\DIFaddend \emph{E. coli} genomes into the HGMC dataset. First, simulated reads
 from a single genome (\emph{E. coli} strain E24377A, NC\_009801.1 with 2\%
 substitution error and 10x coverage) were added to the HGMC dataset and the
 resulting dataset, HGMC.Ecoli1, was normalized by coverage, partitioned, and
 assembled. Similar amounts of data reduction after digital normalization and
-partitioning (Table ~\ref{data-summary}) were observed. Among the resulting 81,154
+partitioning (Table ~\ref{data-summary}) were observed. Among the \DIFaddbegin \DIFadd{resulting }\DIFaddend 81,154
 partitioned sets of reads in the HGMC.Ecoli1 dataset, only 2,580 (3.2\%)
 partitions contained reads from multiple genomes. In total, 424 partitions
 contained reads from the spiked \emph{E. coli} genome (201 partitions contained
-\emph{only} spiked reads) and when assembled, the contigs aligned to 99.5\% of
+\emph{only} spiked reads) and when assembled, \DIFdelbegin \DIFdel{these reads }\DIFdelend \DIFaddbegin \DIFadd{the contigs }\DIFaddend aligned to 99.5\% of
 \emph{E. coli} strain E24377A genome (4,957,067 of 4,979,619 bp).
 
 Next, we introduced five closely-related \emph{E. coli} strains (97.3-98.7\% average nucleotide identity 
@@ -191,16 +239,17 @@ partitions containing reads originating from the spiked \emph{E. coli} strains
 resulted in 6,076 contigs, all but three originating from a spiked \emph{E.
 coli} genome. The remaining three contigs were more than 99\% similar to HGMC
 reference genomes (NC\_000915.1, NC\_003112.2, and NC\_009614.1). The contigs
-associated with the five \emph{E. coli} strains aligned to greater than 98\% of
+associated with the five \emph{E. coli} strains \DIFdelbegin \DIFdel{represented }\DIFdelend \DIFaddbegin \DIFadd{aligned to }\DIFaddend greater than 98\% of
 each of the five genomes. Many of these contigs contained similarities to reads
-originating from multiple genomes found in the HGMC, more than half of the contigs (3,075) 
+originating from multiple genomes found in the HGMC, \DIFdelbegin \DIFdel{and }\DIFdelend \DIFaddbegin \DIFadd{more than half of the contigs (}\DIFaddend 3,075\DIFdelbegin \DIFdel{contigs (51}%DIFDELCMD < \%%%%
+\DIFdelend ) 
 could be aligned to reads which originated from more than one spiked genome.
 
 For comparison, the assembly of the HGMC.Ecoli5 dataset was also performed
 without using any filtering approaches (e.g., no digital normalization or
 partitioning). Comparing the HGMC.Ecoli5 unfiltered and filtered assemblies, we
 found that the fraction of contigs which are associated with multiple genomes
-were similar.  The assembly of the unfiltered dataset resulted in a greater proportion of contigs (66\% or 4,702 contigs compared to 51\% or 3,075 normalized/partitioned contigs) associated with multiple gnomes.
+were similar.  \DIFdelbegin \DIFdel{In the unfiltered data set, }\DIFdelend \DIFaddbegin \DIFadd{The assembly of the unfiltered dataset resulted in a greater proportion of contigs (}\DIFaddend 66\% \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{or }\DIFaddend 4,702 contigs \DIFdelbegin \DIFdel{were associated with spiked reads which could have originated from more than one genome}\DIFdelend \DIFaddbegin \DIFadd{compared to 51}\% \DIFadd{or 3,075 normalized/partitioned contigs) associated with multiple gnomes}\DIFaddend .
 
 \subsection*{Assembly of two soil metagenomes.} We next applied digital
 normalization and partitioning approaches to the {\em de novo} assembly of two
@@ -242,9 +291,9 @@ In the Iowa prairie assembly, 10\% of the single reads and 11\% of the paired
 end reads aligned to the assembled contigs, and 95.4\% of the paired ends
 aligned concordantly (Table ~\ref{read-map}). Based on the alignment of
 sequencing reads to assembled contigs, we estimated the distribution of
-sequencing coverage in the resulting assemblies (Fig.~\ref{soilassemblycoverage}).
+sequencing coverage in \DIFaddbegin \DIFadd{the }\DIFaddend resulting assemblies (Fig.~\ref{soilassemblycoverage}).
 Overall, the coverage of each metagenome was low, where 48\% and 31\% of total
-contigs in Iowa corn and prairie assemblies, respectively, had a read
+contigs in Iowa corn and prairie assemblies, respectively, \DIFdelbegin \DIFdel{they }\DIFdelend had a read
 coverage less than 10.
 
 As the resulting assemblies are consensus representatives of the unassembled
@@ -254,7 +303,7 @@ For both the Iowa corn and prairie metagenomes, more than 99.9\% of
 contigs contained base calls which were supported by a 95\% consensus from
 mapped reads over 90\% of their lengths, demonstrating an unexpectedly low
 polymorphism rate.
- 
+
 We annotated assembled contigs (greater than 300 bp) through the MG-RAST
 pipeline. This annotation resulted in 2,089,779 and 3,460,496 predicted protein
 coding regions in the corn and prairie metagenomes, respectively. The large
@@ -278,7 +327,7 @@ corn alone, and 1,080 in prairie alone) were identified and found to represent
 broad metabolic functions (Fig.~\ref{kegg} and Fig.~\ref{kegg-dist}) involved in
 metabolism, genetic and environmental information processing, and cellular
 processes. Notably, annotation of 2.6 billion unassembled metagenomic reads from the same
-datasets did not result in any matches to the KEGG database. 
+datasets did not result in any matches to the KEGG \DIFdelbegin \DIFdel{datatabase}\DIFdelend \DIFaddbegin \DIFadd{database}\DIFaddend . 
 
 %(REMOVE LATER:  This is so far true for at least half of the lanes but still in progress of annotating them).
 
@@ -290,72 +339,116 @@ unassembled reads). Among these, a total of 34,436 unique contigs (31,058 and 3,
 
 \section*{Discussion}
 \subsection*{Coverage-based filtering approaches reduce datasets.} 
-Our described approach for scalable metagenomic assembly was effective at reducing the HGMC
-dataset size without significant loss of information.  Although the
-diversity and sequencing depth represented by the HGMC dataset is extremely low
+Our \DIFaddbegin \DIFadd{described }\DIFaddend approach for scalable metagenomic assembly \DIFdelbegin \DIFdel{were evaluated against its application to }\DIFdelend \DIFaddbegin \DIFadd{was effective at reducing }\DIFaddend the HGMC
+dataset \DIFaddbegin \DIFadd{size without significant loss of information}\DIFaddend .  Although the
+diversity and sequencing depth represented by \DIFdelbegin \DIFdel{this }\DIFdelend \DIFaddbegin \DIFadd{the HGMC }\DIFaddend dataset is extremely low
 compared to that of most environmental metagenomes, it represents a simplified,
 unevenly sampled model for a metagenomic dataset which allows for the evaluation
-of novel approaches through the availability of source genomes. Our approaches
-normalized the abundance of reads in the dataset to a specific sequencing coverage
-while reducing the dataset volume and removing errors introduced by extraneous reads. Further, the partitioning approach subdivides large datasets into biologocially-relevant subsets that can be assembled separately and by any assembler. 
+of novel approaches through the availability of source genomes. \DIFdelbegin \DIFdel{We found that
+the filtering approaches
+described above were effective at reducing the HGMC
+dataset size without significant loss of assembly. This strategic filtering
+normalizes the }\DIFdelend \DIFaddbegin \DIFadd{Our approaches
+normalized the }\DIFaddend abundance of reads in \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{the }\DIFaddend dataset to a specific sequencing coverage
+\DIFdelbegin \DIFdel{(Fig.~\ref{diginormcoverage}) and effectively reduces the volume of the dataset for assembly while
+}\DIFdelend \DIFaddbegin \DIFadd{while reducing the dataset volume and }\DIFaddend removing errors introduced by extraneous reads. Further, \DIFdelbegin \DIFdel{this normalization also
+resulted in more even coverage (Fig.~\ref{diginormcoverage}), minimizing
+assembly problems caused by variable coverage. Further reduction of the dataset
+was achieved by the removal of extremely high abundance sequences likely to include
+sequencing errors or artifacts}\DIFdelend \DIFaddbegin \DIFadd{the partitioning approach subdivides large datasets into biologocially-relevant subsets that can be assembled separately and by any assembler}\DIFaddend . 
 
-Based on our evaluations of a mock metagenome, we observed that the specific effects of filtering by digital normalization varies depending on the conservation of genomic regions and abundance of genomes.  In general, filtered (normalized and partitioned) assemblies were similar or improved compared to assembly of the unprocessed dataset, suggesting that removing and subsetting this data does not result in a loss of information.  For low coverage genomes, the removal of erroneous sequences during normalization resulted in improved assemblies.  The asesmbly of highly abundant genomes sharing conserved regions (such as the plasmids of the \emph{Staphylococcus epidermidis} genome (NC\_005008.1,
-NC\_005007.1, and NC\_005003.1) were negatively affected by normalization.  The greater number of reads representing these sequences within the unfiltered mock metagenome likely
-enabled assemblers to more effectively extend the assembly of these
+\DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{Based on our evaluations of a mock metagenome, we observed that the }\DIFaddend specific effects of filtering by digital normalization \DIFdelbegin \DIFdel{varied depending on characteristics of HGMC genomes.  We observed that variable abundance and conserved regions in references had an impact on the recovery of sequences in
+filtered HGMC datasets.  For example, the filtered assembliesof the three
+}\DIFdelend \DIFaddbegin \DIFadd{varies depending on the conservation of genomic regions and abundance of genomes.  In general, filtered (normalized and partitioned) assemblies were similar or improved compared to assembly of the unprocessed dataset, suggesting that removing and subsetting this data does not result in a loss of information.  For low coverage genomes, the removal of erroneous sequences during normalization resulted in improved assemblies.  The asesmbly of highly abundant genomes sharing conserved regions (such as the }\DIFaddend plasmids of the \emph{Staphylococcus epidermidis} genome (NC\_005008.1,
+NC\_005007.1, and NC\_005003.1) were \DIFdelbegin \DIFdel{highly abundant (Fig.~\ref{coverage1}) and shared
+several conserved regions (90}%DIFDELCMD < \% %%%
+\DIFdel{identity over more than 290 bp). During
+normalization, repetitive elements in these genomes appear as high coverage
+elements and consequently would be removed, as evidenced by a large difference
+in the }\DIFdelend \DIFaddbegin \DIFadd{negatively affected by normalization.  The greater }\DIFaddend number of reads \DIFdelbegin \DIFdel{associated with NC}%DIFDELCMD < \\%%%
+\DIFdel{SUBSCRIPTNB}%DIFDELCMD < {%%%
+\DIFdel{0}%DIFDELCMD < }%%%
+\DIFdel{05008.1 in the unfiltered and
+normalized datasets (\ref{coverage1}). Thus, the unfiltered dataset
+contained comparably more reads spanning these repetitive regions which }\DIFdelend \DIFaddbegin \DIFadd{representing these sequences within the unfiltered mock metagenome }\DIFaddend likely
+enabled assemblers to more effectively extend the \DIFdelbegin \DIFdel{unfiltered }\DIFdelend assembly of these
 sequences, ultimately observed as an increased recovery of these genomes in
-this assembly compared to the normalized assembly.  This result identifies a
-shortcoming of our approach for metagenomic assembly, and indeed for most short-read assembly approaches,
+\DIFdelbegin \DIFdel{these assemblies.  }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{This result , though rare among genomes in the HGMC dataset, }\DIFdelend \DIFaddbegin \DIFadd{this assembly compared to the normalized assembly.  This result }\DIFaddend identifies a
+shortcoming of our approach \DIFaddbegin \DIFadd{for metagenomic assembly}\DIFaddend , and indeed for most short-read assembly approaches,
 related to repetitive regions and/or polymorphisms. Although data reduction may
 cause information loss, we exchanged this disadvantage for the ability to
-assemble previously intractable datasets. Our evaluation of the mock metagenome
-suggests that this information loss is overall minimal and that our approach
+assemble previously intractable datasets. Our evaluation of the \DIFdelbegin \DIFdel{HGMC dataset
+}\DIFdelend \DIFaddbegin \DIFadd{mock metagenome
+}\DIFaddend suggests that this information loss is overall minimal and that our approach
 results in a comparable assembly whose abundance estimations are slightly
 improved.
 
-\subsection*{Partitioning separates metagenomes into tractable subsets representative of species.}
+\subsection*{Partitioning separates \DIFdelbegin \DIFdel{genomes for assembly}\DIFdelend \DIFaddbegin \DIFadd{metagenomes into tractable subsets representative of species}\DIFaddend .}
 Metagenomes contain many distinct genomes, which are largely disconnected from
 each other but which often share sequences due to sequence conservation or
 lateral transfer. Our pre-filtering normalization approach removes both common multi-genome
 elements as well as most artificial connectivity stemming from the sequencing
 process. The removal of these sequences does not significantly alter the
-recovery of HMGC reference genomes through {\em de novo} assembly, where resulting  
-assemblies of unfiltered, normalized, and
-partitioned datasets were nearly identical.  Further, for the mock metagenome, the large majority of
-partitions contained reads from a single reference genome, supporting our
+recovery of HMGC reference genomes through {\em de novo} assembly\DIFdelbegin \DIFdel{: the }\DIFdelend \DIFaddbegin \DIFadd{, where }\DIFaddend resulting  
+assemblies of unfiltered, \DIFdelbegin \DIFdel{coverage filtered, and
+coverage filtered and
+}\DIFdelend \DIFaddbegin \DIFadd{normalized, and
+}\DIFaddend partitioned datasets were nearly identical.  Further, \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{for the mock metagenome, the }\DIFaddend large majority of
+\DIFdelbegin \DIFdel{these
+}\DIFdelend partitions contained reads from a single reference genome, supporting our
 previous hypothesis that most connected subgraphs contain reads from distinct
-genomes \cite{Pell:2012cq}.  When an \emph{E. coli} genome of 10x sequencing coverage was spiked into this dataset, it was divided into 424 partitions, likely due to the presence of introduced sequencing errors.  Although less than half of these partitions (n=201) contained reads unique to the original reference genome, the combined assembly of each partition could recover nearly all of the original reference.  In the case where five similar \emph{E. coli} genomes were mixed with the mock metagenome, we observed more partitions (n=658) containing \emph{E. coli} sequences, one-third of which contained only \emph{E. coli} sequences.  When these partitions were assembled, the large majority of the
-genomic content of these strains was recovered albeit largely in chimeric contigs. This particular
+genomes \cite{Pell:2012cq}.  \DIFdelbegin \DIFdel{Well-sampled genomes (e.g., high sequencing coverage ) were found to
+be represented in fewer partitions, while under-sampled genomes
+were identified in more partitionsdue to fragmentation of the assembly graph.  }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{To further examine the recovery of sequences through partitioning,
+computationally-derived sequences from one or more }\DIFdelend \DIFaddbegin \DIFadd{When an }\DIFaddend \emph{E. coli} \DIFdelbegin \DIFdel{strains were
+amended to the HGMC dataset. When we spiked in a single \emph{E. coli} strain, we could reassemble 99}%DIFDELCMD < \% %%%
+\DIFdelend \DIFaddbegin \DIFadd{genome of 10x sequencing coverage was spiked into this dataset, it was divided into 424 partitions, likely due to the presence of introduced sequencing errors.  Although less than half of these partitions (n=201) contained reads unique to the original reference genome, the combined assembly of each partition could recover nearly all }\DIFaddend of the original \DIFdelbegin \DIFdel{genome.  If five closely related strains
+were added to the HMGC dataset, we could recover }\DIFdelend \DIFaddbegin \DIFadd{reference.  In the case where five similar \emph{E. coli} genomes were mixed with the mock metagenome, we observed more partitions (n=658) containing \emph{E. coli} sequences, one-third of which contained only \emph{E. coli} sequences.  When these partitions were assembled, }\DIFaddend the large majority of the
+genomic content of these strains \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{was recovered }\DIFaddend albeit largely in chimeric contigs. This particular
 result is not unique to our approach, however, as the comparable unfiltered assembly 
 dataset resulted in a slightly higher fraction of assembled contigs associated
-with multiple references.  This observation suggests that partitioning as an effective method for subdividing a metagenomic dataset, even that with highly similar strains, for assembly.  Further, these much reduced subsets of
-sequences could be targeted for more sensitive assembly approaches for highly
-variable regions such as overlap-layout-consensus approaches or abundance binning
-approaches \cite{Sharon:2012kx}.
+with multiple references.  \DIFdelbegin \DIFdel{Overall, closely related sequences which result from
+either repetitive or inter-strain polymorphisms challenge assemblers, and our
+approach is not specifically designed to target such regions.  However, the
+partitions resulting from our approach could provide a much reduced subset of
+sequences to }\DIFdelend \DIFaddbegin \DIFadd{This observation suggests that partitioning as an effective method for subdividing a metagenomic dataset, even that with highly similar strains, for assembly.  Further, these much reduced subsets of
+sequences could }\DIFaddend be targeted for more sensitive assembly approaches for highly
+variable regions \DIFdelbegin \DIFdel{(i.e. }\DIFdelend \DIFaddbegin \DIFadd{such as }\DIFaddend overlap-layout-consensus approaches or abundance binning
+approaches \cite{Sharon:2012kx}\DIFdelbegin \DIFdel{)}\DIFdelend .
 
-The most valuable result of partitioning is that it subdivides our datasets into sets
-of reads which can be assembled (or analyzed) with minimal computational resources. For the
+\DIFdelbegin \DIFdel{One }\DIFdelend \DIFaddbegin \DIFadd{The most }\DIFaddend valuable result of partitioning is that it subdivides our datasets into sets
+of reads which can be assembled \DIFaddbegin \DIFadd{(or analyzed) }\DIFaddend with minimal computational resources. For the
 HGMC dataset, this gain was small, reducing unfiltered assembly at 12 GB and 4
-hours to less than 2 GB RAM and 1 hour. However, for the soil metagenomes,
+hours to less than 2 GB \DIFaddbegin \DIFadd{RAM }\DIFaddend and 1 hour. However, for the soil metagenomes,
 previously impossible assemblies could be completed in less than a day and in
-under 14 GB RAM of memory enabling the usage of multiple assembly parameters (e.g.,
+under 14 GB \DIFaddbegin \DIFadd{RAM }\DIFaddend of memory enabling the usage of multiple assembly parameters (e.g.,
 k-length) and multiple assemblers (Velvet, SOAPdenovo, and MetaIDBA).
 
 \subsection*{Benefits of soil assembly.} 
 This study represents the largest
 published soil metagenomic sequencing effort to date, and these assembly results
-demonstrate the enormous amount of diversity within the soil.  With this sequencing effort (141 Gbp and 257 Gbp for Iowa corn and prairie soil, respectively), millions of putative genes were defined for each metagenome, with hundreds of thousands of functions. The resulting assembled
+demonstrate the enormous amount of diversity within the soil.  \DIFdelbegin \DIFdel{Even with this level of sequencing , }\DIFdelend \DIFaddbegin \DIFadd{With this sequencing effort (141 Gbp and 257 Gbp for Iowa corn and prairie soil, respectively), }\DIFaddend millions of putative genes were defined for each metagenome, with hundreds of thousands of functions. The resulting assembled
 corn and prairie soil metagenomes resulted in a total assembly length of 912
 million bp and 1.5 billion bp, respectively -- equivalent to $\approx$ 500
 \emph{E. coli} genomes worth of DNA. The assembled contigs agreed well with the
 raw sequencing data, evidenced by evalution of paired-end concordance (Table
-~\ref{read-map}) which was even slightly greater than the fraction of unpaired read alignments.  Further, these contigs contained very low degrees of variation when unassembled reads were aligned, suggesting that they do not originate from polymorphic species within the soil.  Combined, these results support the quality of these metagenomic assemblies and their representation of soil diversity.   
+~\ref{read-map}) \DIFdelbegin \DIFdel{.
+}\DIFdelend \DIFaddbegin \DIFadd{which was even slightly greater than the fraction of unpaired read alignments.  Further, these contigs contained very low degrees of variation when unassembled reads were aligned, suggesting that they do not originate from polymorphic species within the soil.  Combined, these results support the quality of these metagenomic assemblies and their representation of soil diversity.   
+}\DIFaddend 
 
-The overall representation of assembled soil contigs was low (average coverage of 10x) (Fig. ~\ref{soilassemblycoverage}), demonstrating the high diversity even in these localized soils and emphasizing the need to considerably increase sampling of these metagenomes for them to represent its microbial diversity.  As these datasets become increasingly available, our approaches enabling assembly offer a number of advantages for metagenomic
+\DIFdelbegin \DIFdel{Though the overall abundance }\DIFdelend \DIFaddbegin \DIFadd{The overall representation }\DIFaddend of assembled soil contigs was low (\DIFaddbegin \DIFadd{average coverage of 10x) (}\DIFaddend Fig. ~\ref{soilassemblycoverage})\DIFdelbegin \DIFdel{due to 
+}\DIFdelend \DIFaddbegin \DIFadd{, demonstrating }\DIFaddend the high diversity \DIFdelbegin \DIFdel{in these soils, these assemblies }\DIFdelend \DIFaddbegin \DIFadd{even in these localized soils and emphasizing the need to considerably increase sampling of these metagenomes for them to represent its microbial diversity.  As these datasets become increasingly available, our approaches enabling assembly }\DIFaddend offer a number of advantages for metagenomic
 analysis. Firstly, the assembly resulted in significant data compression,
 reducing the volume of our data to be annotated (including sequencing errors) from 397 Gbp (unassembled)
-to 2.4 Gbp (assembled), consequently allowing for more efficient and effective annotation
-and analysis of the resulting sequences. Further, the length of the assembled sequences
-is significantly greater than their unassembled counterparts.  In the soil metagenomes, over 97,000 contigs were longer than 1000 
+to 2.4 Gbp (assembled)\DIFdelbegin \DIFdel{and }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend consequently allowing for more efficient and effective annotation
+and analysis of the resulting sequences\DIFdelbegin \DIFdel{which could be assembled}\DIFdelend . Further, the length of the assembled sequences
+is significantly greater than their unassembled counterparts.  \DIFdelbegin \DIFdel{Over }\DIFdelend \DIFaddbegin \DIFadd{In the soil metagenomes, over }\DIFaddend 97,000 contigs were longer than 1000 
 bp, allowing for the possible identification of multiple genes and operon structure.
 Notably, nine sequences were assembled into contigs greater than 10 kbp (corn
 metagenome), and the most abundant sequences (17,507 bp and 16,126 bp) were
@@ -375,8 +468,8 @@ for the past 35 years, the corn soils have been cultivated and have had annual a
 that could potentially enrich for specific metabolic pathways with decreased
 diversity.
 
-A key challenge facing future soil investigations is the lack culturable representatives from the soil and consequently the availability of reference genomes.  
-This is highlighted by our observation that more than half of the assembled contigs were not similar to any sequence
+\DIFdelbegin \DIFdel{More }\DIFdelend \DIFaddbegin \DIFadd{A key challenge facing future soil investigations is the lack culturable representatives from the soil and consequently the availability of reference genomes.  
+This is highlighted by our observation that more }\DIFaddend than half of the assembled contigs were not similar to any sequence
 in the MG-RAST m5nr databases, suggesting that soil holds considerable unexplored taxonomic
 and functional novelty. These "unknown" sequences are
 broadly distributed in both length and abundance (Fig.~\ref{cornlength}, ~\ref{prairielength}) and
@@ -397,14 +490,15 @@ assembly of a mock community metagenome, and then applying them to two
 previously intractable soil metagenomes. Partitioning is an especially valuable
 approach because it enables the extraction of read subsets that belong to
 individual species. These read partitions are small enough that a variety of
-genomic-based analysis techniques can easily be 
-applied to them individually, as evidenced by the application of multiple assemblers for our soil metagenomes with considerably reduced 
-computational resources. By acting as
+\DIFdelbegin \DIFdel{assembly, abundance analysis , and polymorphism analysis techniques can be easily }\DIFdelend \DIFaddbegin \DIFadd{genomic-based analysis techniques can easily be 
+}\DIFaddend applied to them individually\DIFdelbegin \DIFdel{. These strategies filter and partition reads prior
+to assembly and can work with any assembler, considerably reducing the computational resources needed to complete an assembly}\DIFdelend \DIFaddbegin \DIFadd{, as evidenced by the application of multiple assemblers for our soil metagenomes with considerably reduced 
+computational resources}\DIFaddend . By acting as
 pre-filters, digital normalization and partitioning let downstream assemblers 
 focus on improving their performance on low-coverage or high variability data
 without a strong consideration for computational resources. This should enable
 significant improvement of metagenome assembly techniques going forward and
-provide the critical references which will enable future investigations of soils
+provide the critical \DIFdelbegin \DIFdel{referenceswhich }\DIFdelend \DIFaddbegin \DIFadd{references which }\DIFaddend will enable future investigations of soils
 and other complex environments. \begin{materials} Assemblies of the HGMC and
 soil metagenomes using various software were peformed on (1) quality-filtered
 unassembled and (2) the same sequences filtered by digital normalization
@@ -435,10 +529,6 @@ John Johnson and Eric McDonald at MSU HPC. \end{acknowledgments}
 
 \bibitem{Arumugam:2011p735} Arumugam, M, \& et al. \newblock (2011) Enterotypes of
 the human gut microbiome. \newblock {\em Nature} {\bf 473}, 174--80.
-
-\bibitem{Wommack:rlm} Wommack, K, Bhavsar, J \& Ravel, J. \newblock (2008) Metagenomics: Read Length Matters. \newblock {\em Applied and Environmental Microbiology} {\bf 74:5}, 1453--1463.
-
-
 
 %\bibitem{Arumugam:2011p735} Arumugam, M, Raes, J, Pelletier, E, Paslier, D.~L,
 %Yamada, T, Mende, D.~R, Fernandes, G.~R, Tap, J, Bruls, T, Batto, J.-M,
@@ -616,12 +706,12 @@ of the United States of America} {\bf 101}, 3160--3165.
 \end{thebibliography} \end{article}
 
 \begin{figure}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/new_flowchart.eps}}
-\caption{Summary of approaches for large scale assembly of complex metagenomes presenteds in this study.  Unprocessed (I), normalized (II), and partitioned assemblies (III) were evaluated and compared with the HGMC mock metagenome.  These approaches were used towards the assembly of two large soil metagenomes.}
+\DIFaddbeginFL \centerline{\includegraphics[width=.7\textwidth]{./figures/new_flowchart.eps}}
+\caption{\DIFaddFL{Unfiltered and filtered (by coverage) datasets and assemblies compared in this study.}}
 \label{flowchart}
 \end{figure}
 
-\begin{figure} \begin{center}
+\begin{figure} \DIFaddendFL \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/fig3-coverage.eps}}
 \caption{Coverage (median basepair recovered) distribution of assembled contigs
 from Iowa corn soil (top) and Iowa prairie soil (bottom) metagenomes.}
@@ -655,7 +745,7 @@ Iowa Prairie & 258 / 178 & 287 / 310 \cr \hline \end{tabular}
 
 
 \begin{table} \caption{Assembly summary statistics (total contigs, total million
-bp assembly length, maximum bp contig size) of unfiltered, normalized filtered, 
+bp assembly length, maximum \DIFaddbeginFL \DIFaddFL{bp }\DIFaddendFL contig size\DIFdelbeginFL \DIFdelFL{bp}\DIFdelendFL ) of unfiltered, normalized filtered, 
 or partitioned datasets with Velvet (V) assembler. Assembly for UF
 and P datasets also shown for MetaIDBA (M) and SOAPdenovo(S) assemblers. Assemblies of Iowa
 corn and prairie metagenomes could not be completed on unfiltered or normalized-only datasets.}
@@ -699,13 +789,13 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 \renewcommand{\thefigure}{S\arabic{figure}}
 
 \begin{figure}
-\center{\includegraphics[width=.7\textwidth]{./figures/reference_coverage.eps}}
-\caption{Coverage of reference genomes (estimated actual coverage shown in parentheses) by sequences in unfiltered and normalized filtered unassembled reads and assembled contigs.}
+\DIFaddbeginFL \center{\includegraphics[width=.7\textwidth]{./figures/reference_coverage.eps}}
+\caption{\DIFaddFL{Coverage of reference genomes (estimated actual coverage shown in parentheses) by sequences in unfiltered and normalized filtered unassembled reads and assembled contigs.}}
 \label{coverage1}
 \end{figure}
 
 \begin{figure}
-\begin{center}
+\DIFaddendFL \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/fig2-diginormhist.eps}}
 \caption{K-mer coverage of Iowa corn and prairie metagenomes before
   and after normalization and partitioning filtering approaches.}
@@ -717,7 +807,19 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 
 
 \begin{figure}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/coverage.eps}}
+\DIFdelbeginFL %DIFDELCMD < \centerline{\includegraphics[width=.7\textwidth]{./figures/new_flowchart.eps}}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Unfiltered and filtered (by coverage) datasets and assemblies compared in this study.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{flowchart}
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{figure}
+%DIFDELCMD < %%%
+\DIFdelendFL \centerline{\includegraphics[width=.7\textwidth]{./figures/coverage.eps}}
 \caption{For the HGMC datatset, the number of basepairs with specified coverage for reads which
   map to reference genomes and unfiltered and filtered assembled
   contigs greater than 300 bp.}
@@ -730,7 +832,19 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 
 
 \begin{figure}
-\begin{center}
+\DIFdelbeginFL %DIFDELCMD < \center{\includegraphics[width=.7\textwidth]{./figures/reference_coverage.eps}}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Coverage of reference genomes (estimated actual coverage shown in parentheses) by sequences in unfiltered and normalized filtered unassembled reads and assembled contigs.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{coverage1}
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{figure}
+%DIFDELCMD < %%%
+\DIFdelendFL \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/corn-cov-len-500.eps}}
 \caption{Length distribution of longest assembled corn metagenome contigs with and without similarity to known sequences.  Unknown contigs were defined as sequences with no annotated gene regions.  Coverage (log-scale) of these sequences is also shown by the size of marker. }
 \label{cornlength}
@@ -749,7 +863,7 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 \begin{figure}
 \begin{center}
 \centerline{\includegraphics[width=.7\textwidth]{./figures/metabolism_kegg_pathway_all.eps}}
-\caption{KEGG pathways sharing similarity with assembled soil metagenome sequences (black=combined corn and prairie, blue = prairie only, red = corn only.}
+\caption{KEGG pathways sharing similarity with assembled soil metagenome sequences (black=combined corn and prairie, yellow = prairie only, orange = corn only.}
 \label{kegg}
 \end{center}
 \end{figure}
@@ -757,7 +871,55 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 
 
 \begin{table}
-\caption{HMP mock dataset reference genomes estimated sequencing depth
+\DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Assembly comparisons of unfiltered (UF) and normalized filtered (NF) or
+  filtered/partitioned (FP) HMP mock datasets using different
+  assemblers (Velvet (V), MetaIDBA (M) and SOAPdenovo (S)).  Assembly
+  content similarity is based on the fraction of alignment of
+  assemblies and similarly, the coverage of reference genomes is based
+  on the alignment of assembled contigs to reference genomes (RG).}}
+%DIFAUXCMD
+%DIFDELCMD < \begin{tabular}{@{\extracolsep{\fill}}lcccc}
+%DIFDELCMD < %%%
+\DIFdelFL{Assembly Comparison }%DIFDELCMD < & %%%
+\DIFdelFL{Percent Similarity }%DIFDELCMD < & %%%
+\DIFdelFL{RG Coverage }%DIFDELCMD < & %%%
+\DIFdelFL{Assembler }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{UF vs. NF }%DIFDELCMD < & %%%
+\DIFdelFL{95}%DIFDELCMD < \% & %%%
+\DIFdelFL{43.3}%DIFDELCMD < \% %%%
+\DIFdelFL{/ 44.5}%DIFDELCMD < \% & %%%
+\DIFdelFL{V }%DIFDELCMD < \\
+%DIFDELCMD < %%%
+\DIFdelFL{UF vs. FP }%DIFDELCMD < & %%%
+\DIFdelFL{95}%DIFDELCMD < \% & %%%
+\DIFdelFL{43.3}%DIFDELCMD < \% %%%
+\DIFdelFL{/ 44.4}%DIFDELCMD < \% & %%%
+\DIFdelFL{V}%DIFDELCMD < \\
+%DIFDELCMD < %%%
+\DIFdelFL{UF vs. FP }%DIFDELCMD < & %%%
+\DIFdelFL{93}%DIFDELCMD < \% & %%%
+\DIFdelFL{46.5}%DIFDELCMD < \% %%%
+\DIFdelFL{/ 45.4}%DIFDELCMD < \% & %%%
+\DIFdelFL{M}%DIFDELCMD < \\ 
+%DIFDELCMD < %%%
+\DIFdelFL{UF vs. FP }%DIFDELCMD < & %%%
+\DIFdelFL{98}%DIFDELCMD < \% &  %%%
+\DIFdelFL{46.2}%DIFDELCMD < \% %%%
+\DIFdelFL{/ 46.4}%DIFDELCMD < \% & %%%
+\DIFdelFL{S}%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < \label{assembly-compare}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{table}
+%DIFDELCMD < %%%
+\DIFdelendFL \caption{HMP mock dataset reference genomes estimated sequencing depth
   (median bp coverage of reads), number of partitions, total length
   (bp), coverage of reference genomes by unfiltered reads (UF Cov),
   coverage of reference genomes by normalized filtered reads (F Cov), coverage of
@@ -830,27 +992,27 @@ gi\textbar{}77358697\textbar{}ref\textbar{}NC\_003112.2\textbar{} & 4
 \hline
 \end{tabular}
 \label{ref-summary}
-\end{table}
+\DIFaddbeginFL \end{table}
 
 
 \begin{table}
-\caption{Assembly comparisons of unfiltered (UF) and normalized filtered (NF) or
+\caption{\DIFaddFL{Assembly comparisons of unfiltered (UF) and normalized filtered (NF) or
   filtered/partitioned (FP) HMP mock datasets using different
   assemblers (Velvet (V), MetaIDBA (M) and SOAPdenovo (S)).  Assembly
   content similarity is based on the fraction of alignment of
   assemblies and similarly, the coverage of reference genomes is based
-  on the alignment of assembled contigs to reference genomes (RG).}
+  on the alignment of assembled contigs to reference genomes (RG).}}
 \begin{tabular}{@{\extracolsep{\fill}}lcccc}
-Assembly Comparison & Percent Similarity & RG Coverage & Assembler \\
+\DIFaddFL{Assembly Comparison }& \DIFaddFL{Percent Similarity }& \DIFaddFL{RG Coverage }& \DIFaddFL{Assembler }\\
 \hline
-UF vs. NF & 95\% & 43.3\% / 44.5\% & V \\
-UF vs. FP & 95\% & 43.3\% / 44.4\% & V\\
-UF vs. FP & 93\% & 46.5\% / 45.4\% & M\\ 
-UF vs. FP & 98\% &  46.2\% / 46.4\% & S\\
+\DIFaddFL{UF vs. NF }& \DIFaddFL{95}\% & \DIFaddFL{43.3}\% \DIFaddFL{/ 44.5}\% & \DIFaddFL{V }\\
+\DIFaddFL{UF vs. FP }& \DIFaddFL{95}\% & \DIFaddFL{43.3}\% \DIFaddFL{/ 44.4}\% & \DIFaddFL{V}\\
+\DIFaddFL{UF vs. FP }& \DIFaddFL{93}\% & \DIFaddFL{46.5}\% \DIFaddFL{/ 45.4}\% & \DIFaddFL{M}\\ 
+\DIFaddFL{UF vs. FP }& \DIFaddFL{98}\% &  \DIFaddFL{46.2}\% \DIFaddFL{/ 46.4}\% & \DIFaddFL{S}\\
 \hline
 \end{tabular}
 \label{assembly-compare}
-\end{table}
+\DIFaddendFL \end{table}
 
 
 \begin{table}
