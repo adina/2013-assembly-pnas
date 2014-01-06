@@ -243,22 +243,14 @@ Meyer, F, Paarmann, D, D'Souza, M, Olson, R, Glass, E.~M, Kubal, M, Paczian, T,
 \renewcommand{\thefigure}{S\arabic{figure}}
 \
 
+
+
+
 \begin{figure}
 \center{\includegraphics[width=.7\textwidth]{./figures/reference_coverage.eps}}
 \caption{Coverage of reference genomes (estimated actual coverage shown in parentheses) by sequences in unfiltered and normalized filtered unassembled reads and assembled contigs.}
 \label{coverage1}
 \end{figure}
-
-\begin{figure}
-\begin{center}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/fig2-diginormhist.eps}}
-\caption{K-mer coverage of Iowa corn and prairie metagenomes before
-  and after normalization and partitioning filtering approaches.}
-\label{diginormcoverage}
-\end{center}
-\end{figure}
-
-
 
 
 \begin{figure}
@@ -362,6 +354,32 @@ gi\textbar{}148642060\textbar{}ref\textbar{}NC\_009515.1\textbar{} & 9
 & 552 & 1,853,160 & 1,828,231 & 1,826,639 & 99 \% & 98 \% \\
 gi\textbar{}150002608\textbar{}ref\textbar{}NC\_009614.1\textbar{} & 7
 & 7,751 & 5,163,189 & 4,899,622 & 4,896,808 & 81 \% & 82 \% \\
+gi\textbar{}15644634\textbar{}ref\textbar{}NC\_000915.1\textbar{} & 6
+& 2,888 & 1,667,867 & 1,581,502 & 1,581,024 & 78 \% & 79 \% \\
+gi\textbar{}194172857\textbar{}ref\textbar{}NC\_003028.3\textbar{} & 6
+& 4,123 & 2,160,842 & 2,047,832 & 2,037,347 & 78 \% & 78 \% \\
+gi\textbar{}49175990\textbar{}ref\textbar{}NC\_000913.2\textbar{} & 6
+& 5,913 & 4,639,675 & 4,080,605 & 4,074,119 & 84 \% & 85 \% \\
+gi\textbar{}50841496\textbar{}ref\textbar{}NC\_006085.1\textbar{} & 6
+& 6,459 & 2,560,265 & 2,169,547 & 2,169,056 & 59 \% & 64 \% \\
+gi\textbar{}77358697\textbar{}ref\textbar{}NC\_003112.2\textbar{} & 4
+& 9,269 & 2,272,360 & 1,655,023 & 1,626,301 & 28 \% & 33 \% \\
+\hline
+\end{tabular}
+\label{ref-summary}
+\end{table}
+
+
+\begin{table}
+\caption{Assembly comparisons of unfiltered (UF) and normalized filtered (NF) or
+  filtered/partitioned (FP) HMP mock datasets using different
+  assemblers (Velvet (V), MetaIDBA (M) and SOAPdenovo (S)).  Assembly
+  content similarity is based on the fraction of alignment of
+  assemblies and similarly, the coverage of reference genomes is based
+  on the alignment of assembled contigs to reference genomes (RG).}
+\begin{tabular}{@{\extracolsep{\fill}}lcccc}
+Assembly Comparison & Percent Similarity & RG Coverage & Assembler \\
+\hline
 UF vs. NF & 95\% & 43.3\% / 44.5\% & V \\
 UF vs. FP & 95\% & 43.3\% / 44.4\% & V\\
 UF vs. FP & 93\% & 46.5\% / 45.4\% & M\\ 
@@ -421,6 +439,8 @@ iowa-prairie-3-pass.6224149.1479	&	1479	&	12	&	phosphoribosylglycinamide formylt
 \end{tabular}
 \label{mgrast}
 \end{table}
+
+
 
 % DATA NOT SHOWN
 %\begin{figure}[ht]

@@ -35,7 +35,7 @@ United States of America} \maketitle
 of complex environments pose new challenges to sequence analysis. \textit{De novo} metagenomic assembly effectively reduces
 the total amount of data to be analyzed but requires substantial
 computational resources. We apply two preassembly filtering
-approaches, digital normalization and partitioning, to assemble
+approaches, digital normalization and partitioning, to generate
 previously untractable large metagenome assemblies. Using a
 human gut mock community dataset, we demonstrate that these
 methods result in assemblies nearly identical to assemblies from
@@ -58,7 +58,7 @@ full source code is freely available under a BSD license.
 \keywords{assembly | soil | metagenomics}
 
 \dropcap{C}omplex microbial communities operate at the heart of many crucial
-terrestrial, aquatic,and host-associated processes, providing critical ecosystem
+terrestrial, aquatic, and host-associated processes, providing critical ecosystem
 functionality that underpins much of biology
 \cite{Arumugam:2011p735,Hess:2011p686,Iverson:2012p1281,
 Mackelprang:2011p1087,Qin:2010p189,Tringe:2005p174,Venter:2004p170}. DNA
@@ -103,9 +103,8 @@ coverage for extremely diverse environmental metagenomes
 Here, we apply two pre-assembly read filtering strategies, digital
 normalization and partitioning, that provide a general strategy for scaling and
 improving metagenome assembly for large, complex datasets (e.g. billions of reads). 
-Digital normalization normalizes sequence 
-coverage and reduces the dataset size by setting aside reads from high-coverage
-regions \cite{browndiginorm}. Subsequently, partitioning separates reads based
+Digital normalization reduces the dataset size by setting aside reads from high-coverage
+regions and results in more uniform sequencing coverage overall \cite{browndiginorm}. Subsequently, partitioning separates reads based
 on transitive connectivity, resulting in easily assembled subsets of reads \cite{Pell:2012cq}. 
 As this effort is the first to apply these approaches to complex metagenomes and the true content of environmental metagenomes is unknown, 
 we first evaluated this strategy on a human gut mock community (HGMC) dataset containing 21 known genomes and found that our 
@@ -116,17 +115,15 @@ approaches to species clustering.  We next use these approaches for the assembly
 metagenomes from two matched soils, 100-year cultivated Iowa agricultural corn soil
 and native Iowa prairie.  We used the resulting assemblies to evaluate our ability to both sample and characterize relatively small, localized soil cores and their associated functional diversity.
 
-\section*{Results} \subsection*{Normalization results in similar assemblies without minimal loss of information.} To evaluate our approaches, we first evaluated the recovery of reference genomes from {\em de novo} metagenomic
-assembly of the HGMC dataset by comparing unfiltered traditional assembly (Fig.
-\ref{flowchart}, Assembly I) to the assembly of reads remaining after digital
-normalization (Fig.~\ref{flowchart}, Assembly II). The HGMC dataset contains mixed DNA from isolates at varying abundances ranging from 4-fold to
-2,000-fold sequencing coverage (Table ~\ref{ref-summary}).  After sequencing, this mock metagenome (unassembled) encompassed a total of 93\% of the genomic content of the reference genomes (Fig. ~\ref{coverage1}).
+\section*{Results} \subsection*{Normalization results in similar assemblies with minimal loss of information.} 
+The HGMC dataset contains sequences from mixed DNA from isolates at varying abundances ranging from 4-fold to
+2,000-fold sequencing coverage using the Illumina sequencing platform (Table ~\ref{ref-summary}). We evaluated our ability to describe the original HGMC genomes and to estimate the abundances of these genomes from our filtered assembly relative compared to the unfiltered, original assembly (Fig. \ref{flowchart}, Assembly I and Assembly II) .  
+
+After sequencing, the mock metagenome (unassembled) encompassed a total of 93\% of the genomic content of the reference genomes (Fig. ~\ref{coverage1}).
 After digital normalization, reads were removed based on their coverage within
 the dataset (See Methods), resulting in a total of 5.9 million reads (40\% of
 the total reads) from the original HGMC dataset (Table ~\ref{data-summary}) with coverage of 91\% of the reference
-genomes (Fig. \ref{coverage1}).
-
-To investigate differences resulting from the assembly of mixed genomes of variable abundance, we compared our assembly of filtered HGMC reads (normalized) to the assembly of all original reads.  We evaluated the recovery of reference genomes and the length distribution of assembled contigs for each reference.  Using the Velvet assembler
+genomes (recovery per genome in Fig. \ref{coverage1}). The resulting assembly of filtered HGMC reads (normalized) was compared to the assembly of all original reads, evaluating the recovery of reference genomes and the length distribution of assembled contigs for each reference.  Using the Velvet assembler
 \cite{Zerbino:2008p665}, we recovered 43\% and 44\% of the reference genomes in
 the original and filtered assemblies, respectively. The assembly of the original
 dataset contained 29,063 contigs and 38 million bp, while the filtered assembly
@@ -136,7 +133,7 @@ also obtained with other assemblers (SOAPdenovo \cite{Li:2010jz} and Meta-IDBA
 \cite{Peng:2011p898}). Overall, the unfiltered and filtered assemblies were very
 similar, sharing 95\% of genomic content (Table ~\ref{assembly-compare}) and the distribution
 of contig lengths in unfiltered and filtered assemblies were also comparable. For the
-large majority of genomes, the filtered assembly recovered similar fractions of each reference.  In genomes with lower coverage, such as NC\_003112.2 and NC\_006085.1, improved assemblies from normalization were observed (Table ~\ref{assembly-summary}).  In genomes with high sequencing coverage, such as the plasmids  NC\_005008.1, NC\_005007.1, and NC\_005003.1, the unfiltered assembly recovered significantly more of the original sequence.   
+large majority of genomes, the filtered assembly recovered similar fractions of each reference.  In genomes with lower coverage, such as NC\_003112.2 and NC\_006085.1, improved assemblies from normalization were observed.  In genomes with high sequencing coverage, such as the plasmids  NC\_005008.1, NC\_005007.1, and NC\_005003.1, the unfiltered assembly recovered significantly more of the original sequence (Table ~\ref{assembly-summary}).   
 
 To understanding the representation of genes and genomes in the metagenome, we evaluated our ability to estimate genome abudance in the HGMC mock metagenome and both unfiltered and filtered assemblies. Abundance was estimated through
 the alignment of unassembled reads to both the known reference genomes or assembled
@@ -154,7 +151,7 @@ Methods).
 the normalized data set based on De Bruijn graph connectivity.  This approach should separate disconnected sequences from distinct species and allow for the assembly of each partition independently (Fig.\ref{flowchart}, Assembly III).  Notably, conserved regions shared by multiple genomes (e.g. 16S rRNA genes) may be connected within a single partition, and we examined these partitions through the HGMC dataset.  Overall, it was partitioned into 85,818 disconnected partitions containing a total of 9
 million reads. Among these, only 2,359 (2.7\%) of the partitions contained reads
 originating from more than one genome, indicating that partitioning separated
-the large majority of reads from distinct species.  Partitioning had minimal effects on the assembly of a mock metagenome; the HGMC assemblies of the unpartitioned and
+the large majority of reads from distinct genomes.  Partitioning had minimal effects on the assembly of a mock metagenome; the HGMC assemblies of the unpartitioned and
 partitioned dataset were very similar, sharing 99\% identical genomic content.
 
 The number of partitions in the mock metagenome depends largely on the sequencing coverage of its content. In general, reference genomes with high sequence coverage were associated with
@@ -200,7 +197,7 @@ For comparison, the assembly of the HGMC.Ecoli5 dataset was also performed
 without using any filtering approaches (e.g., no digital normalization or
 partitioning). Comparing the HGMC.Ecoli5 unfiltered and filtered assemblies, we
 found that the fraction of contigs which are associated with multiple genomes
-were similar.  The assembly of the unfiltered dataset resulted in a greater proportion of contigs (66\% or 4,702 contigs compared to 51\% or 3,075 normalized/partitioned contigs) associated with multiple gnomes.
+were similar.  The assembly of the unfiltered dataset resulted in a greater proportion of contigs (66\% or 4,702 contigs compared to 51\% or 3,075 normalized/partitioned contigs) associated with multiple gnomes (data not shown).
 
 \subsection*{Assembly of two soil metagenomes.} We next applied digital
 normalization and partitioning approaches to the {\em de novo} assembly of two
@@ -229,7 +226,7 @@ datasets, respectively. For assembly, we grouped partitions together into files
 containing a minimum of 10 million reads. Data reduction and partitioning were
 completed in less than 300 GB of RAM; once partitioned, each group of reads
 could be assembled in less than 14 GB and 4 hours. This readily enabled the
-usage of multiple assemblers and assembly parameters.
+evaluation of multiple assemblers and assembly parameters.
 
 The final assembly of the corn and prairie soil metagenomes resulted in a total
 of 1.9 million and 3.1 million contigs (minimum length of 300 bp), respectively,
@@ -286,10 +283,10 @@ The shared presence of contigs without functional annotations in both the corn
 and prairie datasets was also evaluated. Assembled contigs that shared no
 homology to known sequences in the M5NR database were used as references for the
 complementing soil metagenome (e.g., corn assembly reference for prairie
-unassembled reads). Among these, a total of 34,436 unique contigs (31,058 and 3,416 corn and prairie contigs, respectively) were found to be shared between to the two soil metagenomes (SI Methods). 
+unassembled reads). Among these, a total of 34,436 contigs (31,058 and 3,416 corn and prairie contigs, respectively) were found to be shared between to the two soil metagenomes (SI Methods). 
 
 \section*{Discussion}
-\subsection*{Coverage-based filtering approaches reduce datasets.} 
+\subsection*{Coverage-based filtering approaches reduce datasets without information loss.} 
 Our described approach for scalable metagenomic assembly was effective at reducing the HGMC
 dataset size without significant loss of information.  Although the
 diversity and sequencing depth represented by the HGMC dataset is extremely low
@@ -297,9 +294,9 @@ compared to that of most environmental metagenomes, it represents a simplified,
 unevenly sampled model for a metagenomic dataset which allows for the evaluation
 of novel approaches through the availability of source genomes. Our approaches
 normalized the abundance of reads in the dataset to a specific sequencing coverage
-while reducing the dataset volume and removing errors introduced by extraneous reads. Further, the partitioning approach subdivides large datasets into biologocially-relevant subsets that can be assembled separately and by any assembler. 
+while reducing the dataset volume and removing errors introduced by extraneous reads. Further, the partitioning approach subdivides large datasets into biologically-relevant subsets that can be assembled separately and by any assembler. 
 
-Based on our evaluations of a mock metagenome, we observed that the specific effects of filtering by digital normalization varies depending on the conservation of genomic regions and abundance of genomes.  In general, filtered (normalized and partitioned) assemblies were similar or improved compared to assembly of the unprocessed dataset, suggesting that removing and subsetting this data does not result in a loss of information.  For low coverage genomes, the removal of erroneous sequences during normalization resulted in improved assemblies.  The asesmbly of highly abundant genomes sharing conserved regions (such as the plasmids of the \emph{Staphylococcus epidermidis} genome (NC\_005008.1,
+Based on our evaluations of a mock metagenome, we observed that the specific effects of filtering by digital normalization varies depending on the conservation of genomic regions and abundance of genomes.  In general, filtered (normalized and partitioned) assemblies were similar or improved compared to assembly of the unprocessed dataset, suggesting that removing and subsetting this data does not result in a loss of information.  For low coverage genomes, the removal of erroneous sequences during normalization resulted in improved assemblies.  The assembly of highly abundant genomes sharing conserved regions (such as the plasmids of the \emph{Staphylococcus epidermidis} (NC\_005008.1,
 NC\_005007.1, and NC\_005003.1) were negatively affected by normalization.  The greater number of reads representing these sequences within the unfiltered mock metagenome likely
 enabled assemblers to more effectively extend the assembly of these
 sequences, ultimately observed as an increased recovery of these genomes in
@@ -703,17 +700,6 @@ Aligned & 8.43\% & 9.47\% \cr Total Unfiltered PE Reads & 834,556,853 &
 \caption{Coverage of reference genomes (estimated actual coverage shown in parentheses) by sequences in unfiltered and normalized filtered unassembled reads and assembled contigs.}
 \label{coverage1}
 \end{figure}
-
-\begin{figure}
-\begin{center}
-\centerline{\includegraphics[width=.7\textwidth]{./figures/fig2-diginormhist.eps}}
-\caption{K-mer coverage of Iowa corn and prairie metagenomes before
-  and after normalization and partitioning filtering approaches.}
-\label{diginormcoverage}
-\end{center}
-\end{figure}
-
-
 
 
 \begin{figure}
