@@ -86,7 +86,7 @@ to efficiently analyze nor effective bioinformatics tools (because of short read
 genomes). \emph{De novo} assembly of sequence data offers several advantages for
 analyzing metagenomic datasets. It provides improved accuracy of sequences by
 removing most random sequencing errors and results in contigs longer and more
-specific than unassembled sequencing reads. Further, assembly significantly
+specific than unassembled sequencing reads \cite{Loman}. Further, assembly significantly
 reduces the total volume of data required for downstream analysis (e.g., gene
 annotation). Importantly, \emph{de novo} assembly also does not rely on the
 existence of reference genomes, thus allowing for the discovery of novel genomic
@@ -96,10 +96,10 @@ large volume of metagenomic data: metagenomes from rumen, human gut, and
 permafrost soil sequencing could only be assembled by discarding low abundance
 sequences prior to assembly
 \cite{Hess:2011p686,Mackelprang:2011p1087,Qin:2010p189}. Although many
-metagenome-specific assemblers have recently been developed for community
+metagenome-specific assemblers have recently been developed for low-complexity community
 assembly, they cannot work with the volume of reads necessary to achieve high
 coverage for extremely diverse environmental metagenomes
-\cite{metaray, Scholz:2012p1372}.
+\cite{Loman, metaray, Scholz:2012p1372}.
 
 Here, we apply two pre-assembly read filtering strategies, digital
 normalization and partitioning, that together provide a general strategy for scaling and
@@ -392,7 +392,7 @@ environmental metagenomes by compressing and subdividing the data
 prior to assembly. The strategies are generic and broadly applicable to any
 metagenome. We demonstrate their effectiveness by first evaluating them on the
 assembly of a mock community metagenome, and then applying them to two
-previously intractable soil metagenomes.  Digital normalization makes the data set size scale with community richness rather than diversity, which is important for mixed-abundance communities. After digital normalization, partitioning enables the extraction of read subsets that belong to
+previously intractable soil metagenomes.  Digital normalization scales the data size with community richness rather than diversity, which is particularly effective for mixed-abundance communities. After digital normalization, partitioning enables the extraction of read subsets that belong to
 individual species. These read partitions are small enough that a variety of
 genomic-based analysis techniques can easily be 
 applied to them individually, as evidenced by the application of multiple assemblers for our soil metagenomes with considerably reduced 
@@ -476,6 +476,9 @@ metagenomes: revealing an uncultured class of marine euryarchaeota. \newblock
 %metagenomes: revealing an uncultured class of marine euryarchaeota. \newblock
 %{\em Science} {\bf 335}, 587--90.
 
+\bibitem{Loman} Loman, NJ \& et al.
+\newblock (2013) A culture-independent sequence-based metagenomics approach to the investigation of an outbreak of Shiga-toxigenic Escherichia coli O104:H4.
+\newblock {\em JAMA} {\bf 2013}, 309--14.
 
 \bibitem{Mackelprang:2011p1087} Mackelprang, R, \& et al.
 \newblock (2011) Metagenomic analysis of a permafrost microbial community
