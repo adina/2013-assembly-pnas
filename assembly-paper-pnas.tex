@@ -34,14 +34,15 @@ United States of America} \maketitle
 \begin{article} \begin{abstract} The large volumes of sequencing data required to deeply sample microbial communities
 of complex environments pose new challenges to sequence analysis. \textit{De novo} metagenomic assembly effectively reduces
 the total amount of data to be analyzed but requires substantial
-computational resources. We apply two preassembly filtering
+computational resources. We combine two preassembly filtering
 approaches, digital normalization and partitioning, to generate
 previously untractable large metagenome assemblies. Using a
 human gut mock community dataset, we demonstrate that these
 methods result in assemblies nearly identical to assemblies from
 unprocessed data. We then assemble two large soil metagenomes
 totalling 398 billion bp (equivalent to 88,000 \textit{E. coli} genomes) from
-matched Iowa corn and native prairie soils. Unlike their unassembled
+matched Iowa corn and native prairie soils. 
+Unlike their unassembled
 counterparts, the resulting assembled contigs could be used
 to identify molecular interactions and reaction networks of known
 metabolic pathways (KEGG). Nonetheless, greater than 60\% of
@@ -49,9 +50,10 @@ predicted proteins in assemblies could not be annotated against
 known databases. Many of these unknown proteins were 
 abundant in both corn and prairie soils, highlighting the 
 benefits of assembly for the discovery and characterization of
-novelty in soil biodiversity. The assembly strategies presented
-are generic and can be extended to any metagenome and any assembler;
-full source code is freely available under a BSD license.
+novelty in soil biodiversity. Moreover, 80\% of the sequencing data
+could not be assembled due to low coverage, suggesting that considerably
+more sequencing data is needed to characterize the functional content
+of soil.
 
 \end{abstract}
 
@@ -103,16 +105,16 @@ Here, we apply two pre-assembly read filtering strategies, digital
 normalization and partitioning, that together provide a general strategy for scaling and
 improving metagenome assembly for large, complex datasets (e.g. billions of reads). 
 Digital normalization reduces the dataset size by setting aside reads from high-coverage
-regions and results in more uniform sequencing coverage overall, and scales assembly by sample richness rather than diversity \cite{browndiginorm}. Subsequently, partitioning separates reads based
+regions and results in more uniform sequencing coverage overall, while scaling assembly by sample richness rather than diversity \cite{browndiginorm}. Subsequently, partitioning separates reads based
 on transitive connectivity, resulting in easily assembled subsets of reads \cite{Pell:2012cq}.
 As these approaches have yet to be applied to environmental metagenomes for which the true content is unknown,
 we first evaluate this strategy on a human gut mock community (HGMC) dataset containing 21 known genomes and find that these
 methods result in assemblies nearly identical to assemblies from the unprocessed HGMC
 dataset.  Moreover, we show that partitioning separates most reads into
 species-level bins, providing an alternative to abundance-based and k-mer
-approaches to species clustering.  We next use these approaches for the assembly of previously intractable
-metagenomes from two matched soils, 100-year cultivated Iowa agricultural corn soil
-and native Iowa prairie.  We use the resulting assemblies to evaluate our ability to both sample and characterize relatively small, localized soil cores and their associated functional diversity.
+approaches to species clustering.  We next use these approaches to easily assemble two previously intractable
+metagenomes from matched soils, 100-year cultivated Iowa agricultural corn soil
+and native Iowa prairie soil.  We use the resulting assemblies to evaluate our ability to both sample and characterize relatively small, localized soil cores and their associated functional diversity.  Even with 300 Gbp of data, we are unable to achieve deep coverage of the majority of organisms in the sample, highlighting the need for more extensive sequencing.
 
 \section*{Results} \subsection*{Normalization results in similar assemblies with minimal loss of information.} 
 The HGMC dataset contains sequences from mixed DNA from isolates at varying abundances ranging from 4-fold to
