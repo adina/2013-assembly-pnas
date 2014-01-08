@@ -388,12 +388,11 @@ investigations of proteins we know nothing about. As increasing numbers of metag
 
 \subsection{Conclusions}
 We have presented two strategies that readily enable the assembly of very large
-environmental metagenomes by discarding redundancy and subdividing the data
+environmental metagenomes by compressing and subdividing the data
 prior to assembly. The strategies are generic and broadly applicable to any
 metagenome. We demonstrate their effectiveness by first evaluating them on the
 assembly of a mock community metagenome, and then applying them to two
-previously intractable soil metagenomes. Partitioning is an especially valuable
-approach because it enables the extraction of read subsets that belong to
+previously intractable soil metagenomes.  Digital normalization makes the data set size scale with community richness rather than diversity, which is important for mixed-abundance communities. After digital normalization, partitioning enables the extraction of read subsets that belong to
 individual species. These read partitions are small enough that a variety of
 genomic-based analysis techniques can easily be 
 applied to them individually, as evidenced by the application of multiple assemblers for our soil metagenomes with considerably reduced 
@@ -403,7 +402,9 @@ focus on improving their performance on low-coverage or high variability data
 without a strong consideration for computational resources. This should enable
 significant improvement of metagenome assembly techniques going forward and
 provide the critical references which will enable future investigations of soils
-and other complex environments. \begin{materials} Assemblies of the HGMC and
+and other complex environments.
+
+\begin{materials} Assemblies of the HGMC and
 soil metagenomes using various software were peformed on (1) quality-filtered
 unassembled and (2) the same sequences filtered by digital normalization
 (coverage threshold (C) = 20, removal of high coverage sequences (C > 50), and partitioning disconnected sets
